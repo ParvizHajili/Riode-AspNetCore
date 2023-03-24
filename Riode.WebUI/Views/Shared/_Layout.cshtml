@@ -5,10 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
     <title>Riode - Ultimate eCommerce Template</title>
 
     <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Riode - Ultimate eCommerce Template">
+    <meta name="description" content="Riode - eCommerce Template">
     <meta name="author" content="D-THEMES">
 
     <!-- Favicon -->
@@ -16,11 +17,11 @@
 
     <script>
         WebFontConfig = {
-            google: { families: ['Poppins:300,400,500,600,700,800'] }
+            google: { families: ['Poppins:400,500,600,700,800'] }
         };
         (function (d) {
             var wf = d.createElement('script'), s = d.scripts[0];
-            wf.src = '~/UI/js/webfont.js';
+            wf.src = 'js/webfont.js';
             wf.async = true;
             s.parentNode.insertBefore(wf, s);
         })(document);
@@ -36,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="~/UI/vendor/owl-carousel/owl.carousel.min.css">
 
     <!-- Main CSS File -->
-    <link rel="stylesheet" type="text/css" href="~/UI/css/demo1.min.css">
+    <link rel="stylesheet" type="text/css" href="~/UI/css/demo23.min.css">
 </head>
 
 <body class="home">
@@ -89,18 +90,37 @@
                         <a href="#" class="mobile-menu-toggle">
                             <i class="d-icon-bars2"></i>
                         </a>
-                        <a href="demo1.html" class="logo">
-                            <img src="~/UI/images/logo.png" alt="logo" width="153" height="44" />
+                        <a href="demo23.html" class="logo">
+                            <img src="~/UI/images/demos/demo23/logo.png" alt="logo" width="153" height="44" />
                         </a>
                         <!-- End Logo -->
 
                         <div class="header-search hs-simple">
-                            <form action="#" class="input-wrapper">
-                                <input type="text" class="form-control" name="search" autocomplete="off"
-                                       placeholder="Search..." required />
-                                <button class="btn btn-search" type="submit">
-                                    <i class="d-icon-search"></i>
-                                </button>
+                            <form action="#" method="get" class="input-wrapper">
+                                <div class="select-box">
+                                    <select id="category" name="category">
+                                        <option value="">All Categories</option>
+                                        <option value="4">Fashion</option>
+                                        <option value="12">- Women</option>
+                                        <option value="13">- Men</option>
+                                        <option value="66">- Jewellery</option>
+                                        <option value="67">- Kids Fashion</option>
+                                        <option value="5">Electronics</option>
+                                        <option value="21">- Smart TVs</option>
+                                        <option value="22">- Cameras</option>
+                                        <option value="63">- Games</option>
+                                        <option value="7">Home &amp; Garden</option>
+                                        <option value="11">Motors</option>
+                                        <option value="31">- Cars and Trucks</option>
+                                        <option value="32">- Motorcycles &amp; Powersports</option>
+                                        <option value="33">- Parts &amp; Accessories</option>
+                                        <option value="34">- Boats</option>
+                                        <option value="57">- Auto Tools &amp; Supplies</option>
+                                    </select>
+                                </div>
+                                <input type="text" class="form-control" name="search" id="search"
+                                       placeholder="Search..." required="">
+                                <button class="btn btn-search" type="submit"><i class="d-icon-search"></i></button>
                             </form>
                         </div>
                         <!-- End Header Search -->
@@ -141,7 +161,7 @@
                                     <div class="product product-cart">
                                         <figure class="product-media">
                                             <a href="product.html">
-                                                <img src="~/UI/images/cart/product-1.jpg" alt="product" width="80"
+                                                <img src="images/cart/product-1.jpg" alt="product" width="80"
                                                      height="88" />
                                             </a>
                                             <button class="btn btn-link btn-close">
@@ -195,6 +215,19 @@
                             </div>
                             <!-- End Dropdown Box -->
                         </div>
+                        <div class="header-search hs-toggle mobile-search">
+                            <a href="#" class="search-toggle">
+                                <i class="d-icon-search"></i>
+                            </a>
+                            <form action="#" class="input-wrapper">
+                                <input type="text" class="form-control" name="search" autocomplete="off"
+                                       placeholder="Search your keyword..." required />
+                                <button class="btn btn-search" type="submit">
+                                    <i class="d-icon-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!-- End of Header Search -->
                     </div>
                 </div>
             </div>
@@ -202,13 +235,13 @@
             <div class="header-bottom d-lg-show">
                 <div class="container">
                     <div class="header-left">
-                        <nav class="main-nav">
+                        <nav class="main-nav ml-0">
                             <ul class="menu">
                                 <li class="active">
-                                    <a href="demo1.html">Home</a>
+                                    <a href="demo23.html">Home</a>
                                 </li>
                                 <li>
-                                    <a href="shop.html">Categories</a>
+                                    <a href="demo23-shop.html">Categories</a>
                                     <div class="megamenu">
                                         <div class="row">
                                             <div class="col-6 col-sm-4 col-md-3 col-lg-4">
@@ -216,7 +249,7 @@
                                                 <ul>
                                                     <li><a href="shop-banner-sidebar.html">Banner With Sidebar</a></li>
                                                     <li><a href="shop-boxed-banner.html">Boxed Banner</a></li>
-                                                    <li><a href="shop-infinite-scroll.html">Infinite ajaxscroll</a></li>
+                                                    <li><a href="shop-infinite-scroll.html">Infinite Ajaxscroll</a></li>
                                                     <li>
                                                         <a href="shop-horizontal-filter.html">Horizontal Filter</a>
                                                     </li>
@@ -259,8 +292,9 @@
                                                     <h3 class="banner-title font-weight-bold">
                                                         <span class="text-uppercase">Up to</span>70% Off
                                                     </h3>
-                                                    <a href="shop.html" class="btn btn-link btn-underline">
-                                                        shop now<i class="d-icon-arrow-right"></i>
+                                                    <a href="demo23-shop.html" class="btn btn-link btn-underline">
+                                                        shop
+                                                        now<i class="d-icon-arrow-right"></i>
                                                     </a>
                                                 </div>
                                             </div>
@@ -269,7 +303,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="product.html">Products</a>
+                                    <a href="demo23-product.html">Products</a>
                                     <div class="megamenu">
                                         <div class="row">
                                             <div class="col-6 col-sm-4 col-md-3 col-lg-4">
@@ -295,7 +329,7 @@
                                                 <ul>
                                                     <li>
                                                         <a href="product-grid.html">
-                                                            Grid<span class="tip tip-new">New</span>
+                                                            Grid Images<span class="tip tip-new">New</span>
                                                         </a>
                                                     </li>
                                                     <li><a href="product-masonry.html">Masonry</a></li>
@@ -340,25 +374,6 @@
                                         <li><a href="coming-soon.html">Coming Soon</a></li>
                                     </ul>
                                 </li>
-                                <li class="d-xl-show">
-                                    <a href="#">Elements</a>
-                                    <ul>
-                                        <li><a href="element-products.html">Products</a></li>
-                                        <li><a href="element-typography.html">Typography</a></li>
-                                        <li><a href="element-titles.html">Titles</a></li>
-                                        <li><a href="element-categories.html">Product Category</a></li>
-                                        <li><a href="element-buttons.html">Buttons</a></li>
-                                        <li><a href="element-accordions.html">Accordions</a></li>
-                                        <li><a href="element-alerts.html">Alert &amp; Notification</a></li>
-                                        <li><a href="element-tabs.html">Tabs</a></li>
-                                        <li><a href="element-testimonials.html">Testimonials</a></li>
-                                        <li><a href="element-blog-posts.html">Blog Posts</a></li>
-                                        <li><a href="element-instagrams.html">Instagrams</a></li>
-                                        <li><a href="element-cta.html">Call to Action</a></li>
-                                        <li><a href="element-icon-boxes.html">Icon Boxes</a></li>
-                                        <li><a href="element-icons.html">Icons</a></li>
-                                    </ul>
-                                </li>
                                 <li>
                                     <a href="blog-classic.html">Blog</a>
                                     <ul>
@@ -394,6 +409,25 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li class="d-xl-show">
+                                    <a href="#">Elements</a>
+                                    <ul>
+                                        <li><a href="element-products.html">Products</a></li>
+                                        <li><a href="element-typography.html">Typography</a></li>
+                                        <li><a href="element-titles.html">Titles</a></li>
+                                        <li><a href="element-categories.html">Product Category</a></li>
+                                        <li><a href="element-buttons.html">Buttons</a></li>
+                                        <li><a href="element-accordions.html">Accordions</a></li>
+                                        <li><a href="element-alerts.html">Alert &amp; Notification</a></li>
+                                        <li><a href="element-tabs.html">Tabs</a></li>
+                                        <li><a href="element-testimonials.html">Testimonials</a></li>
+                                        <li><a href="element-blog-posts.html">Blog Posts</a></li>
+                                        <li><a href="element-instagrams.html">Instagrams</a></li>
+                                        <li><a href="element-cta.html">Call to Action</a></li>
+                                        <li><a href="element-icon-boxes.html">Icon Boxes</a></li>
+                                        <li><a href="element-icons.html">Icons</a></li>
+                                    </ul>
+                                </li>
                                 <li>
                                     <a href="about-us.html">About Us</a>
                                 </li>
@@ -401,7 +435,6 @@
                         </nav>
                     </div>
                     <div class="header-right">
-                        <a href="#"><i class="d-icon-card"></i>Special Offers</a>
                         <a href="https://d-themes.com/buynow/riodehtml" target="_blank" class="ml-6">Buy Riode!</a>
                     </div>
                 </div>
@@ -411,552 +444,79 @@
         <main class="main">
             @RenderBody()
             <div class="page-content">
-                <section class="intro-section">
-                    <div class="owl-carousel owl-theme row owl-dot-inner owl-dot-white intro-slider animation-slider cols-1 gutter-no"
+                <section class="intro-slider animation-slider owl-carousel owl-theme owl-nav-bg owl-dot-inner row cols-1 gutter-no"
                          data-owl-options="{
-                        'nav': false,
-                        'dots': true,
-                        'loop': false,
-                        'items': 1,
-                        'autoplay': false,
-                        'autoplayTimeout': 8000
-                    }">
-                        <div class="banner banner-fixed intro-slide1" style="background-color: #46b2e8;">
-                            <figure>
-                                <img src="~/UI/images/demos/demo1/slides/slide1.jpg" alt="intro-banner" width="1903"
-                                     height="630" style="background-color: #34ace5;" />
-                            </figure>
-                            <div class="container">
-                                <div class="banner-content y-50">
-                                    <h4 class="banner-subtitle font-weight-bold ls-l">
-                                        <span class="d-inline-block slide-animate"
-                                              data-animation-options="{'name': 'fadeInRightShorter', 'duration': '1s', 'delay': '.2s'}">
-                                            Buy
-                                            2 Get
-                                        </span>
-                                        <span class="d-inline-block label-star bg-white text-primary slide-animate"
-                                              data-animation-options="{'name': 'fadeInRightShorter', 'duration': '1s', 'delay': '.4s'}">
-                                            1
-                                            Free
-                                        </span>
-                                    </h4>
-                                    <h2 class="banner-title font-weight-bold text-white lh-1 ls-md slide-animate"
-                                        data-animation-options="{'name': 'fadeInUpShorter', 'duration': '1.2s', 'delay': '1s'}">
-                                        Fashionable
-                                    </h2>
-                                    <h3 class="font-weight-normal lh-1 ls-l text-white slide-animate"
-                                        data-animation-options="{'name': 'fadeInUpShorter', 'duration': '1.2s', 'delay': '1s'}">
-                                        Collection
-                                    </h3>
-                                    <p class="slide-animate text-white ls-s mb-7"
-                                       data-animation-options="{'name': 'fadeInUpShorter', 'duration': '1.2s', 'delay': '1s'}">
-                                        Get Free Shipping on all orders over $99.00
-                                    </p>
-                                    <a href="shop.html" class="btn btn-dark btn-rounded slide-animate"
-                                       data-animation-options="{'name': 'fadeInUpShorter', 'duration': '1s', 'delay': '1.8s'}">
-                                        Shop
-                                        Now<i class="d-icon-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="banner banner-fixed intro-slide2" style="background-color: #dddee0;">
-                            <figure>
-                                <img src="~/UI/images/demos/demo1/slides/slide2.jpg" alt="intro-banner" width="1903"
-                                     height="630" style="background-color: #d8d9d9;" />
-                            </figure>
-                            <div class="container">
-                                <div class="banner-content y-50 ml-auto text-right">
-                                    <h4 class="banner-subtitle ls-s mb-1 slide-animate"
-                                        data-animation-options="{'name': 'fadeInUp', 'duration': '.7s'}">
-                                        <span class="d-block text-uppercase mb-2">Coming soon</span><strong class="font-weight-semi-bold ls-m">Riode Birthday</strong>
-                                    </h4>
-                                    <h2 class="banner-title mb-2 d-inline-block font-weight-bold text-primary slide-animate"
-                                        data-animation-options="{'name': 'fadeInRight', 'duration': '1.2s', 'delay': '.5s'}">
-                                        Sale
-                                    </h2>
-                                    <p class="slide-animate font-primary ls-s text-dark mb-4"
-                                       data-animation-options="{'name': 'fadeInUp', 'duration': '1s', 'delay': '1.2s'}">
-                                        Up to 70% off on all products <br />online &amp; Free Shipping over $90
-                                    </p>
-                                    <a href="shop.html" class="btn btn-dark btn-rounded slide-animate"
-                                       data-animation-options="{'name': 'fadeInUp', 'duration': '1s', 'delay': '1.4s'}">
-                                        Shop
-                                        Now<i class="d-icon-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="banner banner-fixed video-banner intro-slide3" style="background-color: #dddee0;">
-                            <figure>
-                                <video src="~/UI/video/memory-of-a-woman.mp4" width="1903" height="630"></video>
-                            </figure>
-                            <div class="container">
-                                <div class="banner-content x-50 y-50 text-center">
-                                    <h4 class="banner-subtitle text-white text-uppercase mb-3 ls-normal slide-animate"
-                                        data-animation-options="{'name': 'fadeIn', 'duration': '.7s'}">
-                                        Check out our
-                                    </h4>
-                                    <h2 class="banner-title mb-3 text-white font-weight-bold text-uppercase ls-m slide-animate"
-                                        data-animation-options="{'name': 'fadeInUp', 'duration': '.7s', 'delay': '.5s'}">
-                                        Summer Season's
-                                    </h2>
-                                    <p class="slide-animate mb-7 text-white ls-s font-primary "
-                                       data-animation-options="{'name': 'fadeInUp', 'duration': '1s', 'delay': '.8s'}">
-                                        Up to 50% Off this Season’s &amp; Get free shipping<br />on all orders over
-                                        $199.00
-                                    </p>
-                                    <a href="shop.html" class="btn btn-dark btn-rounded slide-animate mb-1"
-                                       data-animation-options="{'name': 'fadeInLeft', 'duration': '1s', 'delay': '1.5s'}">
-                                        Shop
-                                        Now<i class="d-icon-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container mt-6 appear-animate">
-                        <div class="service-list">
-                            <div class="owl-carousel owl-theme row cols-lg-3 cols-sm-2 cols-1" data-owl-options="{
-                                    'items': 3,
-                                    'nav': false,
-                                    'dots': false,
-                                    'loop': true,
-                                    'autoplay': false,
-                                    'autoplayTimeout': 5000,
-                                    'responsive': {
-                                        '0': {
-                                            'items': 1
-                                        },
-                                        '576': {
-                                            'items': 2
-                                        },
-                                        '768': {
-                                            'items': 3,
-                                            'loop': false
-                                        }
-                                    }
-                                }">
-                                <div class="icon-box icon-box-side icon-box1 appear-animate" data-animation-options="{
-                                        'name': 'fadeInRightShorter',
-                                        'delay': '.3s'
-                                    }">
-                                    <i class="icon-box-icon d-icon-truck"></i>
-                                    <div class="icon-box-content">
-                                        <h4 class="icon-box-title text-capitalize ls-normal lh-1">
-                                            Free Shipping &amp;
-                                            Return
-                                        </h4>
-                                        <p class="ls-s lh-1">Free shipping on orders over $99</p>
-                                    </div>
-                                </div>
-
-                                <div class="icon-box icon-box-side icon-box2 appear-animate" data-animation-options="{
-                                        'name': 'fadeInRightShorter',
-                                        'delay': '.4s'
-                                    }">
-                                    <i class="icon-box-icon d-icon-service"></i>
-                                    <div class="icon-box-content">
-                                        <h4 class="icon-box-title text-capitalize ls-normal lh-1">
-                                            Customer Support 24/7
-                                        </h4>
-                                        <p class="ls-s lh-1">Instant access to perfect support</p>
-                                    </div>
-                                </div>
-
-                                <div class="icon-box icon-box-side icon-box3 appear-animate" data-animation-options="{
-                                        'name': 'fadeInRightShorter',
-                                        'delay': '.5s'
-                                    }">
-                                    <i class="icon-box-icon d-icon-secure"></i>
-                                    <div class="icon-box-content">
-                                        <h4 class="icon-box-title text-capitalize ls-normal lh-1">
-                                            100% Secure Payment
-                                        </h4>
-                                        <p class="ls-s lh-1">We ensure secure payment!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="pt-10 mt-7 appear-animate" data-animation-options="{
-                    'delay': '.3s'
-                }">
-                    <div class="container">
-                        <h2 class="title title-center mb-5">Our Categories</h2>
-                        <div class="row">
-                            <div class="col-xs-6 col-lg-3 mb-4">
-                                <div class="category category-default1 category-absolute banner-radius overlay-zoom">
-                                    <a href="shop.html">
-                                        <figure class="category-media">
-                                            <img src="~/UI/images/categories/category1.jpg" alt="category" width="280"
-                                                 height="280" style="background-color: #8c8c8d;" />
-                                        </figure>
-                                    </a>
-                                    <div class="category-content">
-                                        <h4 class="category-name font-weight-bold ls-l">
-                                            <a href="shop.html">
-                                                For
-                                                Men's
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-lg-3 mb-4">
-                                <div class="category category-default1 category-absolute banner-radius overlay-zoom">
-                                    <a href="shop.html">
-                                        <figure class="category-media">
-                                            <img src="~/UI/images/categories/category2.jpg" alt="category" width="280"
-                                                 height="280" style="background-color: #bcbdb7;" />
-                                        </figure>
-                                    </a>
-                                    <div class="category-content">
-                                        <h4 class="category-name font-weight-bold ls-l">
-                                            <a href="shop.html">Accessories</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-lg-3 mb-4">
-                                <div class="category category-default1 category-absolute banner-radius overlay-zoom">
-                                    <a href="shop.html">
-                                        <figure class="category-media">
-                                            <img src="~/UI/images/categories/category3.jpg" alt="category" width="280"
-                                                 height="280" style="background-color: #ececef;" />
-                                        </figure>
-                                    </a>
-                                    <div class="category-content">
-                                        <h4 class="category-name font-weight-bold ls-l">
-                                            <a href="shop.html">
-                                                Fashionable
-                                                Women's
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-lg-3 mb-4">
-                                <div class="category category-default1 category-absolute banner-radius overlay-zoom">
-                                    <a href="shop.html">
-                                        <figure class="category-media">
-                                            <img src="~/UI/images/categories/category4.jpg" alt="category" width="280"
-                                                 height="280" style="background-color: #e8eded;" />
-                                        </figure>
-                                    </a>
-                                    <div class="category-content font-weight-bold">
-                                        <h4 class="category-name font-weight-bold ls-l">
-                                            <a href="shop.html">Cosmetic</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="product-wrapper container appear-animate mt-6 mt-md-10 pt-4 pb-8" data-animation-options="{
-                    'delay': '.3s'
-                }">
-                    <h2 class="title title-center mb-5">Best Sellers</h2>
-                    <div class="owl-carousel owl-theme row owl-nav-full cols-2 cols-md-3 cols-lg-4" data-owl-options="{
-                        'items': 5,
-                        'nav': false,
-                        'loop': false,
-                        'dots': true,
-                        'margin': 20,
-                        'responsive': {
-                            '0': {
-                                'items': 2
-                            },
-                            '768': {
-                                'items': 3
-                            },
-                            '992': {
-                                'items': 4,
-                                'dots': false,
-                                'nav': true
-                            }
+                    'items': 1,
+                    'loop': false,
+                    'responsive': {
+                        '992': {
+                            'dots': false,
+                            'nav': true
                         }
-                    }">
-                        <div class="product text-center">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="~/UI/images/demos/demo1/products/product1.jpg" alt="Blue Pinafore Denim Dress"
-                                         width="280" height="315" style="background-color: #f2f3f5;" />
-                                </a>
-                                <div class="product-label-group">
-                                    <label class="product-label label-new">new</label>
-                                </div>
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                       data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
-                                        <i class="d-icon-heart"></i>
-                                    </a>
-                                </div>
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="product-cat">
-                                    <a href="shop-grid-3cols.html">Clothing</a>
-                                </div>
-                                <h3 class="product-name">
-                                    <a href="product.html">Solid pattern in fashion summer dress</a>
-                                </h3>
-                                <div class="product-price">
-                                    <span class="price">$140.00</span>
-                                </div>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width:100%"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="product.html" class="rating-reviews">( 12 reviews )</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product text-center">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="~/UI/images/demos/demo1/products/product2.jpg" alt="Blue Pinafore Denim Dress"
-                                         width="280" height="315" style="background-color: #f2f3f5;" />
-                                </a>
-                                <div class="product-label-group">
-                                    <span class="product-label label-sale">25% off</span>
-                                </div>
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                       data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
-                                        <i class="d-icon-heart"></i>
-                                    </a>
-                                </div>
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="product-cat">
-                                    <a href="shop-grid-3cols.html">Bags & Backpacks</a>
-                                </div>
-                                <h3 class="product-name">
-                                    <a href="product.html">Mackintosh Poket backpack</a>
-                                </h3>
-                                <div class="product-price">
-                                    <ins class="new-price">$125.99</ins><del class="old-price">$160.99</del>
-                                </div>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width:60%"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="product.html" class="rating-reviews">( 8 reviews )</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product text-center">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="~/UI/images/demos/demo1/products/product3.jpg" alt="Blue Pinafore Denim Dress"
-                                         width="280" height="315" style="background-color: #f2f3f5;" />
-                                </a>
-
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                       data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
-                                        <i class="d-icon-heart"></i>
-                                    </a>
-                                </div>
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="product-cat">
-                                    <a href="shop-grid-3cols.html">Clothing</a>
-                                </div>
-                                <h3 class="product-name">
-                                    <a href="product.html">Fashionable Orginal Trucker</a>
-                                </h3>
-                                <div class="product-price">
-                                    <span class="price">$78.64</span>
-                                </div>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width:40%"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="product.html" class="rating-reviews">( 2 reviews )</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product text-center">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="~/UI/images/demos/demo1/products/product4.jpg" alt="Blue Pinafore Denim Dress"
-                                         width="280" height="315" style="background-color: #f2f3f5;" />
-                                </a>
-                                <div class="product-label-group">
-                                    <label class="product-label label-new">New</label>
-                                </div>
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                       data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
-                                        <i class="d-icon-heart"></i>
-                                    </a>
-                                </div>
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="product-cat">
-                                    <a href="shop-grid-3cols.html">Clothing</a>
-                                </div>
-                                <h3 class="product-name">
-                                    <a href="product.html">Women Red Fur Overcoat</a>
-                                </h3>
-                                <div class="product-price">
-                                    <span class="price">$184.00</span>
-                                </div>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="product.html" class="rating-reviews">( 6 reviews )</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product text-center">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="~/UI/images/demos/demo1/products/product2.jpg" alt="Blue Pinafore Denim Dress"
-                                         width="280" height="315" style="background-color: #f2f3f5;" />
-                                </a>
-                                <div class="product-label-group">
-                                    <span class="product-label label-sale">25% off</span>
-                                </div>
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                       data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
-                                        <i class="d-icon-heart"></i>
-                                    </a>
-                                </div>
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="product-cat">
-                                    <a href="shop-grid-3cols.html">Bags & Backpacks</a>
-                                </div>
-                                <h3 class="product-name">
-                                    <a href="product.html">Mackintosh Poket backpack</a>
-                                </h3>
-                                <div class="product-price">
-                                    <ins class="new-price">$125.99</ins><del class="old-price">$160.99</del>
-                                </div>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width:60%"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="product.html" class="rating-reviews">( 8 reviews )</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="banner-group mt-4">
-                    <div class="container">
-                        <h2 class="title d-none">Banner Group</h2>
-
-                        <div class="row justify-content-center">
-                            <div class="col-lg-4 col-sm-6 mb-4">
-                                <div class="banner banner-3 banner-fixed banner-radius content-middle appear-animate"
-                                     data-animation-options="{'name': 'fadeInLeftShorter', 'duration': '1s', 'delay': '.2s'}">
-                                    <figure>
-                                        <img src="~/UI/images/demos/demo1/banners/banner1.jpg" alt="banner" width="380"
-                                             height="207" style="background-color: #836648;" />
-                                    </figure>
-                                    <div class="banner-content">
-                                        <h3 class="banner-title text-white mb-1">For Men's</h3>
-                                        <h4 class="banner-subtitle text-uppercase font-weight-normal text-white">
-                                            Starting at $29
-                                        </h4>
-                                        <hr class="banner-divider">
-                                        <a href="shop.html" class="btn btn-white btn-link btn-underline">
-                                            Shop Now<i class="d-icon-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 mb-4 order-lg-auto order-sm-last">
-                                <div class="banner banner-4 banner-fixed banner-radius content-middle content-center appear-animate"
-                                     data-animation-options="{'name': 'fadeIn', 'duration': '1s', 'delay': '.2s'}">
-                                    <figure>
-                                        <img src="~/UI/images/demos/demo1/banners/banner2.jpg" alt="banner" width="350"
-                                             height="177" style="background-color: #1e1e1e;" />
-                                    </figure>
-                                    <div class="banner-content d-flex align-items-center w-100 text-left">
-                                        <div class="mr-auto mb-4 mb-md-0">
-                                            <h4 class="banner-subtitle text-white">
-                                                Up to 20% Off<br><span class="ls-l">Black Friday</span>
-                                            </h4>
-                                            <h3 class="banner-title text-primary font-weight-bold lh-1 mb-0">Sale</h3>
-                                        </div>
-                                        <a href="shop.html"
-                                           class="btn btn-primary btn-outline btn-rounded font-weight-bold text-white">
-                                            Shop
-                                            Now<i class="d-icon-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 mb-4">
-                                <div class="banner banner-5 banner-fixed banner-radius content-middle appear-animate"
-                                     data-animation-options="{'name': 'fadeInRightShorter', 'duration': '1s', 'delay': '.2s'}">
-                                    <figure>
-                                        <img src="~/UI/images/demos/demo1/banners/banner3.jpg" alt="banner" width="380"
-                                             height="207" style="background-color: #97928b;" />
-                                    </figure>
-                                    <div class="banner-content">
-                                        <h3 class="banner-title text-white mb-1">Fashions</h3>
-                                        <h4 class="banner-subtitle text-uppercase font-weight-normal text-white">
-                                            30% Off
-                                        </h4>
-                                        <hr class="banner-divider">
-                                        <a href="shop.html" class="btn btn-white btn-link btn-underline">
-                                            Shop Now<i class="d-icon-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="product-wrapper mt-6 mt-md-10 pt-4 mb-10 pb-2 container appear-animate" data-animation-options="{
-                    'delay': '.6s'
+                    },
+                    'animateIn': 'fadeIn',
+                    'animateOut': 'fadeOut'
                 }">
-                    <h2 class="title title-center">Our Featured</h2>
-                    <div class="owl-carousel owl-theme row cols-2 cols-md-3 cols-lg-4 cols-xl-5" data-owl-options="{
+                    <div class="intro-slide1 banner banner-fixed" style="background-color: #f0f0f0">
+                        <figure>
+                            <img src="~/UI/images/demos/demo23/slides/1.jpg" alt="banner" width="1903" height="469" />
+                        </figure>
+                        <div class="container">
+                            <div class="banner-content ml-lg-2 y-50">
+                                <div class="slide-animate"
+                                     data-animation-options="{'name': 'flipInY', 'duration': '.8s'}">
+                                    <h4 class="banner-subtitle text-uppercase">Performance &amp; Lifestyle</h4>
+                                    <h3 class="banner-title ls-m text-dark font-weight-bolder">
+                                        <span class="font-weight-bold text-primary ls-s">Introducing</span><br />Fashion
+                                        Lifestyle<br />Collection
+                                    </h3>
+                                    <a href="demo23-shop.html" class="btn btn-dark btn-outline btn-rounded mb-1">
+                                        Shop
+                                        now <i class="d-icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="intro-slide2 banner banner-fixed" style="background-color: #ececf3">
+                        <figure>
+                            <img src="~/UI/images/demos/demo23/slides/2.jpg" alt="banner" width="1903" height="469" />
+                        </figure>
+                        <div class="container">
+                            <div class="banner-content ml-auto y-50 mr-0">
+                                <div class="slide-animate"
+                                     data-animation-options="{'name': 'blurIn', 'duration': '.8s'}">
+                                    <h4 class="banner-subtitle text-uppercase text-primary">Professional</h4>
+                                    <h3 class="banner-title ls-s font-weight-bold">
+                                        Pulseira Inteligente <br />Smart Band
+                                        5
+                                    </h3>
+                                    <a href="demo23-shop.html" class="btn btn-dark btn-outline btn-rounded mb-1">
+                                        Shop
+                                        now <i class="d-icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="product-wrapper container mt-10 pt-6 appear-animate">
+                    <div class="title-wrapper d-flex align-items-center mb-5 with-link">
+                        <h2 class="title title-simple text-left mb-0 ls-normal">Deals of the Week</h2>
+                        <div class="countdown-container d-flex align-items-center font-weight-semi-bold text-white">
+                            <label>Ends In:</label>
+                            <div class="countdown countdown-compact" data-format="HMS" data-until="+10h"
+                                 data-relative="true" data-compact="true">
+                                00:00:00
+                            </div>
+                        </div>
+                        <a href="#" class="">View All Products<i class="d-icon-arrow-right"></i></a>
+                    </div>
+                    <div class="owl-carousel owl-theme row cols-xl-5 cols-lg-4 cols-md-3 cols-2 gutter-xs"
+                         data-owl-options="{
                         'items': 5,
-                        'nav': false,
                         'loop': false,
-                        'dots': true,
-                        'margin': 20,
+                        'margin': 10,
                         'responsive': {
                             '0': {
                                 'items': 2
@@ -968,17 +528,17 @@
                                 'items': 4
                             },
                             '1200': {
-                                'items': 5,
-                                'dots': false,
-                                'nav': true
+                                'items': 5
                             }
                         }
                     }">
                         <div class="product text-center">
                             <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="~/UI/images/demos/demo1/products/product5.jpg" alt="Blue Pinafore Denim Dress"
-                                         width="220" height="245" style="background-color: #f2f3f5;" />
+                                <a href="demo23-product.html">
+                                    <img src="~/UI/images/demos/demo23/products/1.jpg" alt="product" width="300"
+                                         height="332">
+                                    <img src="~/UI/images/demos/demo23/products/1-1.jpg" alt="product" width="300"
+                                         height="332">
                                 </a>
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
@@ -993,32 +553,31 @@
                             </figure>
                             <div class="product-details">
                                 <div class="product-cat">
-                                    <a href="shop-grid-3cols.html">Watches</a>
+                                    <a href="demo23-shop.html">categories</a>
                                 </div>
                                 <h3 class="product-name">
-                                    <a href="product.html">Fashion Electric Wrist Watch</a>
+                                    <a href="demo23-product.html">Modern Fashionale Bag</a>
                                 </h3>
                                 <div class="product-price">
-                                    <span class="price">$270.99</span>
+                                    <span class="price">$45.00</span>
                                 </div>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
-                                        <span class="ratings" style="width:40%"></span>
+                                        <span class="ratings" style="width:100%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="product.html" class="rating-reviews">( 15 reviews )</a>
+                                    <a href="demo23-product.html" class="rating-reviews">( 2 )</a>
                                 </div>
                             </div>
                         </div>
                         <div class="product text-center">
                             <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="~/UI/images/demos/demo1/products/product6.jpg" alt="Blue Pinafore Denim Dress"
-                                         width="220" height="245" style="background-color: #f2f3f5;" />
+                                <a href="demo23-product.html">
+                                    <img src="~/UI/images/demos/demo23/products/2.jpg" alt="product" width="300"
+                                         height="332">
+                                    <img src="~/UI/images/demos/demo23/products/2-1.jpg" alt="product" width="300"
+                                         height="332">
                                 </a>
-                                <div class="product-label-group">
-                                    <label class="product-label label-new">New</label>
-                                </div>
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
                                        data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
@@ -1032,28 +591,30 @@
                             </figure>
                             <div class="product-details">
                                 <div class="product-cat">
-                                    <a href="shop-grid-3cols.html">Women</a>
+                                    <a href="demo23-shop.html">categories</a>
                                 </div>
                                 <h3 class="product-name">
-                                    <a href="product.html">Hempen Hood a Mourner</a>
+                                    <a href="demo23-product.html">Comfor Sandle</a>
                                 </h3>
                                 <div class="product-price">
-                                    <span class="price">$12.83</span>
+                                    <span class="price">$23.00</span>
                                 </div>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
-                                        <span class="ratings" style="width:20%"></span>
+                                        <span class="ratings" style="width:100%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="product.html" class="rating-reviews">( 3 reviews )</a>
+                                    <a href="demo23-product.html" class="rating-reviews">( 3 )</a>
                                 </div>
                             </div>
                         </div>
                         <div class="product text-center">
                             <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="~/UI/images/demos/demo1/products/product7.jpg" alt="Blue Pinafore Denim Dress"
-                                         width="220" height="245" style="background-color: #f2f3f5;" />
+                                <a href="demo23-product.html">
+                                    <img src="~/UI/images/demos/demo23/products/3.jpg" alt="product" width="300"
+                                         height="332">
+                                    <img src="~/UI/images/demos/demo23/products/3-1.jpg" alt="product" width="300"
+                                         height="332">
                                 </a>
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
@@ -1068,32 +629,31 @@
                             </figure>
                             <div class="product-details">
                                 <div class="product-cat">
-                                    <a href="shop-grid-3cols.html">Women</a>
+                                    <a href="demo23-shop.html">categories</a>
                                 </div>
                                 <h3 class="product-name">
-                                    <a href="product.html">Women Beautiful Headgear</a>
+                                    <a href="demo23-product.html">Super Pixel Camera</a>
                                 </h3>
                                 <div class="product-price">
-                                    <span class="price">$78.24</span>
+                                    <span class="price">$14.00</span>
                                 </div>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
-                                        <span class="ratings" style="width:40%"></span>
+                                        <span class="ratings" style="width:100%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="product.html" class="rating-reviews">( 8 reviews )</a>
+                                    <a href="demo23-product.html" class="rating-reviews">( 4 )</a>
                                 </div>
                             </div>
                         </div>
                         <div class="product text-center">
                             <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="~/UI/images/demos/demo1/products/product8.jpg" alt="Blue Pinafore Denim Dress"
-                                         width="220" height="245" style="background-color: #f2f3f5;" />
+                                <a href="demo23-product.html">
+                                    <img src="~/UI/images/demos/demo23/products/4.jpg" alt="product" width="300"
+                                         height="332">
+                                    <img src="~/UI/images/demos/demo23/products/4-1.jpg" alt="product" width="300"
+                                         height="332">
                                 </a>
-                                <div class="product-label-group">
-                                    <span class="product-label label-new">New</span>
-                                </div>
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
                                        data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
@@ -1107,32 +667,31 @@
                             </figure>
                             <div class="product-details">
                                 <div class="product-cat">
-                                    <a href="shop-grid-3cols.html">Shoes</a>
+                                    <a href="demo23-shop.html">categories</a>
                                 </div>
                                 <h3 class="product-name">
-                                    <a href="product.html">Converse Training Shoes</a>
+                                    <a href="demo23-product.html">Modern Vaccum Machine</a>
                                 </h3>
                                 <div class="product-price">
-                                    <span class="price">$113.00</span>
+                                    <span class="price">$65.00</span>
                                 </div>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
-                                        <span class="ratings" style="width:80%"></span>
+                                        <span class="ratings" style="width:100%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="product.html" class="rating-reviews">( 11 reviews )</a>
+                                    <a href="demo23-product.html" class="rating-reviews">( 3 )</a>
                                 </div>
                             </div>
                         </div>
                         <div class="product text-center">
                             <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="~/UI/images/demos/demo1/products/product9.jpg" alt="Blue Pinafore Denim Dress"
-                                         width="220" height="245" style="background-color: #f2f3f5;" />
+                                <a href="demo23-product.html">
+                                    <img src="~/UI/images/demos/demo23/products/5.jpg" alt="product" width="300"
+                                         height="332">
+                                    <img src="~/UI/images/demos/demo23/products/5-1.jpg" alt="product" width="300"
+                                         height="332">
                                 </a>
-                                <div class="product-label-group">
-                                    <span class="product-label label-sale">27% Off</span>
-                                </div>
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
                                        data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
@@ -1146,555 +705,1137 @@
                             </figure>
                             <div class="product-details">
                                 <div class="product-cat">
-                                    <a href="shop-grid-3cols.html">Bags & Backpacks</a>
+                                    <a href="demo23-shop.html">categories</a>
                                 </div>
                                 <h3 class="product-name">
-                                    <a href="product.html">Women's Fashion Handbag</a>
+                                    <a href="demo23-product.html">Tiny Casual Audio</a>
                                 </h3>
                                 <div class="product-price">
-                                    <ins class="new-price">$53.99</ins><del class="old-price">$67.99</del>
+                                    <span class="price">$35.00</span>
                                 </div>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
-                                        <span class="ratings" style="width:60%"></span>
+                                        <span class="ratings" style="width:100%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="product.html" class="rating-reviews">( 16 reviews )</a>
+                                    <a href="demo23-product.html" class="rating-reviews">( 4 )</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-
-                <section class="banner banner-background parallax text-center" data-option="{'offset': -60}"
-                         data-image-src="~/UI/images/demos/demo1/parallax.jpg" style="background-color: #2d2f33;">
-                    <div class="container">
-                        <div class="banner-content appear-animate"
-                             data-animation-options="{'name': 'blurIn', 'duration': '1s', 'delay': '.2s'}">
-                            <h4 class="banner-subtitle text-white font-weight-bold ls-l">
-                                Extra<span class="d-inline-block label-star bg-dark text-primary ml-4 mr-2">
-                                    30%
-                                    Off
-                                </span>Online
-                            </h4>
-                            <h3 class="banner-title font-weight-bold text-white">Summer Season Sale</h3>
-                            <p class="text-white ls-s">Free shipping on orders over $99</p>
-                            <a href="shop.html" class="btn btn-primary btn-rounded btn-icon-right">
-                                Shop Now<i class="d-icon-arrow-right"></i>
+                <section class="categories container mt-10 pt-2">
+                    <h2 class="title title-simple text-left pb-1">Popular Categories</h2>
+                    <div class="owl-carousel owl-theme" data-owl-options="{
+                        'nav': false,
+                        'dots': true,
+                        'items': 4,
+                        'margin':  20,
+                        'loop': false,
+                        'responsive': {
+                            '0': {
+                                'items': 1
+                            },
+                            '576': {
+                                'items': 2
+                            },
+                            '992': {
+                                'items': 3
+                            }
+                        }
+                    }">
+                        <div class="category category-group-icon appear-animate" style="background-color: #4b5577">
+                            <a href="demo23-shop.html" class="mb-2">
+                                <figure class="category-media">
+                                    <i class="d-icon-t-shirt1" style="font-size: 6.8rem; margin: 0 0 1.4rem;"></i>
+                                </figure>
+                                <h4 class="category-name">Clothing</h4>
                             </a>
+                            <div class="category-content">
+                                <ul class="category-list">
+                                    <li><a href="demo23-shop.html">Hats</a></li>
+                                    <li><a href="demo23-shop.html">Men's Necklace</a></li>
+                                    <li><a href="demo23-shop.html">Pendant</a></li>
+                                    <li><a href="demo23-shop.html">Shirts</a></li>
+                                    <li><a href="demo23-shop.html">Traveller</a></li>
+                                    <li><a href="demo23-shop.html">Trousers</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="category category-group-icon appear-animate" style="background-color: #6d52af">
+                            <a href="demo23-shop.html">
+                                <figure class="category-media">
+                                    <i class="d-icon-basketball2"></i>
+                                </figure>
+                                <h4 class="category-name">Sporting Goods</h4>
+                            </a>
+                            <div class="category-content">
+                                <ul class="category-list">
+                                    <li><a href="demo23-shop.html">Caps</a></li>
+                                    <li><a href="demo23-shop.html">Shoes</a></li>
+                                    <li><a href="demo23-shop.html">Ski Accessories</a></li>
+                                    <li><a href="demo23-shop.html">Sport balls</a></li>
+                                    <li><a href="demo23-shop.html">Sportswear</a></li>
+                                    <li><a href="demo23-shop.html">Watches</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="category category-group-icon appear-animate" style="background-color: #3366cc">
+                            <a href="demo23-shop.html">
+                                <figure class="category-media">
+                                    <i class="d-icon-backpack"></i>
+                                </figure>
+                                <h4 class="category-name">Bag &amp; Backpack</h4>
+                            </a>
+                            <div class="category-content">
+                                <ul class="category-list">
+                                    <li><a href="demo23-shop.html">Backpack</a></li>
+                                    <li><a href="demo23-shop.html">Fashion</a></li>
+                                    <li><a href="demo23-shop.html">Handbag</a></li>
+                                    <li><a href="demo23-shop.html">Purse bag</a></li>
+                                    <li><a href="demo23-shop.html">Sale</a></li>
+                                    <li><a href="demo23-shop.html">Travel Bag</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </section>
-
-                <section class="blog-post-wrapper mt-6 mt-md-10 pt-7 appear-animate"
-                         data-animation-options="{'name': 'fadeIn', 'duration': '1s'}">
-                    <div class="container">
-                        <h2 class="title title-center">Featured Articles</h2>
-                        <div class="owl-carousel owl-theme post-slider row cols-lg-3 cols-sm-2 cols-1" data-owl-options="{
-                            'nav': false,
-                            'dots': true,
-                            'margin': 20,
-                            'responsive': {
-                                '0': {
-                                    'items': 1
-                                },
-                                '576': {
-                                    'items': 2
-                                },
-                                '992': {
-                                    'items': 3,
-                                    'dots': false
-                                }
+                <section class="product-wrapper container mt-10 pt-6">
+                    <h2 class="title title-simple text-left with-link">
+                        Sporting Goods<a href="demo23-shop.html">
+                            View All
+                            Products<i class="d-icon-arrow-right"></i>
+                        </a>
+                    </h2>
+                    <div class="product-grid row gutter-sm">
+                        <div class="height-x2">
+                            <div class="banner banner-fixed">
+                                <figure>
+                                    <img src="~/UI/images/demos/demo23/banner/1.jpg" alt="banner" width="340" height="593" />
+                                </figure>
+                                <div class="banner-content appear-animate" data-animation-options="{
+                                    'name': 'fadeInDownShorter'
+                                }">
+                                    <h4 class="banner-subtitle ls-m text-uppercase">
+                                        Winter
+                                        season's
+                                    </h4>
+                                    <h3 class="banner-title ls-s font-weight-bold">Discover Our Ski<br />Equipments</h3>
+                                    <a href="demo23-shop.html" class="btn btn-white btn-shadow-sm">
+                                        Shop now <i class="d-icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/6.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Advanced Headphone</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$55.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 1 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/7.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Black Basketball</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$39.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 4 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/2.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Comfor Sandle</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$35.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 2 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/9.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Comfortable Audio</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$37.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 1 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/10.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Converse Blue Training Shoes</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$36.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 1 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/11.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Converse Kids Star Suede Shoes</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$35.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 2 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/12.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Ski shoes</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$39.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/13.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Perfect trainer</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$35.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 2 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="container mt-10">
+                    <div class="banner1 banner" style="background-color: #27272c;">
+                        <figure>
+                            <img src="~/UI/images/demos/demo23/banner/3.jpg" alt="">
+                        </figure>
+                        <div class="banner-content y-50" style="transform-origin: 25%">
+                            <div class="appear-animate" data-animation-options="{
+                                'name': 'blurIn'
+                            }">
+                                <h4 class="banner-subtitle text-white font-weight-normal">Accessories for</h4>
+                                <h3 class="banner-title d-inline-block text-white text-uppercase font-weight-bold mr-5 mb-0">
+                                    Summer
+                                    Season's
+                                </h3>
+                                <a href="demo23-shop.html" class="btn btn-white btn-link pb-2 pt-2 d-inline-block btn-infinite btn-slide-right">
+                                    Shop
+                                    now <i class="d-icon-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="product-wrapper container mt-10 pt-5">
+                    <h2 class="title title-simple with-link">
+                        Electronics<a href="#">
+                            View All Products<i class="d-icon-arrow-right"></i>
+                        </a>
+                    </h2>
+                    <div class="product-grid row gutter-sm">
+                        <div class="height-x2">
+                            <div class="banner banner-fixed">
+                                <figure>
+                                    <img src="~/UI/images/demos/demo23/banner/2.jpg" alt="banner" width="340" height="593" />
+                                </figure>
+                                <div class="banner-content appear-animate" data-animation-options="{
+                                    'name': 'fadeInDownShorter'
+                                }">
+                                    <h4 class="banner-subtitle ls-m text-uppercase">Multiple Sports Modes</h4>
+                                    <h3 class="banner-title ls-s font-weight-bold">
+                                        Professional<br />
+                                        Mi Smart Band 5C
+                                    </h3>
+                                    <a href="demo23-shop.html" class="btn btn-white btn-shadow-sm mb-1">
+                                        Shop now <i class="d-icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/14.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Canon Digital Speaker</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$26.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 5 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/15.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">XP Digital Watch</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$35.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 6 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/16.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Game Controller</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$45.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 4 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/17.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">High Capacity Recharge</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$35.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 3 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/18.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Nikos Digital Camera</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$52.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 5 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/19.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Sport Watch</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$35.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 3 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/20.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Super Sound Audio</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$64.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 1 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="height-x1 appear-animate">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a href="demo23-product.html">
+                                        <img src="~/UI/images/demos/demo23/products/21.jpg" alt="product" width="234"
+                                             height="259">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                           data-target="#addCartModal" title="Add to cart">
+                                            <i class="d-icon-bag"></i>
+                                        </a>
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                            <i class="d-icon-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a href="demo23-product.html">Water Proof Tablet</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">43.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="demo23-product.html" class="rating-reviews">( 1 )</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="container mt-10">
+                    <div class="banner1 banner" style="background-color: #27272c;">
+                        <figure>
+                            <img src="~/UI/images/demos/demo23/banner/4.jpg" alt="">
+                        </figure>
+                        <div class="banner-content y-50" style="transform-origin: 25%">
+                            <div class="appear-animate" data-animation-options="{
+                                'name': 'blurIn'
+                            }">
+                                <h4 class="banner-subtitle text-white font-weight-normal">Black Friday Sale</h4>
+                                <h3 class="banner-title d-inline-block text-white text-uppercase ls-s font-weight-bold mr-5 mb-0">
+                                    Latest Power Bank
+                                </h3>
+                                <a href="demo23-shop.html" class="btn btn-white btn-link pb-2 pt-2 d-inline-block btn-infinite btn-slide-right">
+                                    Shop
+                                    now <i class="d-icon-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="product-wrapper container mt-10 pt-5 appear-animate">
+                    <h2 class="title title-simple text-left with-link">
+                        Our Featured<a href="demo23-shop.html">
+                            View All
+                            Products<i class="d-icon-arrow-right"></i>
+                        </a>
+                    </h2>
+                    <div class="owl-carousel owl-theme row cols-xl-5 cols-lg-4 cols-md-3 cols-2 gutter-xs"
+                         data-owl-options="{
+                        'items': 5,
+                        'loop': false,
+                        'margin': 10,
+                        'responsive': {
+                            '0': {
+                                'items': 2
+                            },
+                            '768': {
+                                'items': 3
+                            },
+                            '992': {
+                                'items': 4
+                            },
+                            '1200': {
+                                'items': 5
                             }
-                        }">
-                            <div class="blog-post mb-4">
-                                <article class="post post-frame overlay-zoom">
-                                    <figure class="post-media">
-                                        <a href="post-single.html">
-                                            <img src="~/UI/images/blog/frame/1.jpg" alt="Blog post" width="340" height="206"
-                                                 style="background-color: #919fbc;" />
-                                        </a>
-                                        <div class="post-calendar">
-                                            <span class="post-day">19</span>
-                                            <span class="post-month">JAN</span>
-                                        </div>
-                                    </figure>
-                                    <div class="post-details">
-                                        <h4 class="post-title">
-                                            <a href="post-single.html">
-                                                20% Off Coupon for Cyber
-                                                Week
-                                            </a>
-                                        </h4>
-                                        <p class="post-content">
-                                            Lorem ipsum dolor sit amet,onadipiscing elit, sedsd
-                                            doeiu smod tempo...
-                                        </p>
-                                        <a href="post-single.html" class="btn btn-primary btn-link btn-underline">
-                                            Read
-                                            More<i class="d-icon-arrow-right"></i>
-                                        </a>
+                        }
+                    }">
+                        <div class="product text-center">
+                            <figure class="product-media">
+                                <a href="demo23-product.html">
+                                    <img src="~/UI/images/demos/demo23/products/22.jpg" alt="product" width="300"
+                                         height="332">
+                                    <img src="~/UI/images/demos/demo23/products/22-1.jpg" alt="product" width="300"
+                                         height="332">
+                                </a>
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                       data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                        <i class="d-icon-heart"></i>
+                                    </a>
+                                </div>
+                                <div class="product-action">
+                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                </div>
+                            </figure>
+                            <div class="product-details">
+                                <div class="product-cat">
+                                    <a href="demo23-shop.html">categories</a>
+                                </div>
+                                <h3 class="product-name">
+                                    <a href="demo23-product.html">Fashion Twin Phone</a>
+                                </h3>
+                                <div class="product-price">
+                                    <span class="price">$35.00</span>
+                                </div>
+                                <div class="ratings-container">
+                                    <div class="ratings-full">
+                                        <span class="ratings" style="width:100%"></span>
+                                        <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                </article>
+                                    <a href="demo23-product.html" class="rating-reviews">( 3 )</a>
+                                </div>
                             </div>
-                            <div class="blog-post mb-4">
-                                <article class="post post-frame overlay-zoom">
-                                    <figure class="post-media">
-                                        <a href="post-single.html">
-                                            <img src="~/UI/images/blog/frame/2.jpg" alt="Blog post" width="340" height="206"
-                                                 style="background-color: #e5e6e6;" />
-                                        </a>
-                                        <div class="post-calendar">
-                                            <span class="post-day">19</span>
-                                            <span class="post-month">JAN</span>
-                                        </div>
-                                    </figure>
-                                    <div class="post-details">
-                                        <h4 class="post-title">
-                                            <a href="post-single.html">
-                                                20% Off Coupon for Cyber
-                                                Week
-                                            </a>
-                                        </h4>
-                                        <p class="post-content">
-                                            Lorem ipsum dolor sit amet,onadipiscing elit, sedsd
-                                            doeiu smod tempo...
-                                        </p>
-                                        <a href="post-single.html" class="btn btn-primary btn-link btn-underline">
-                                            Read
-                                            More<i class="d-icon-arrow-right"></i>
-                                        </a>
+                        </div>
+                        <div class="product text-center">
+                            <figure class="product-media">
+                                <a href="demo23-product.html">
+                                    <img src="~/UI/images/demos/demo23/products/5.jpg" alt="product" width="300"
+                                         height="332">
+                                    <img src="~/UI/images/demos/demo23/products/5-1.jpg" alt="product" width="300"
+                                         height="332">
+                                </a>
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                       data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                        <i class="d-icon-heart"></i>
+                                    </a>
+                                </div>
+                                <div class="product-action">
+                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                </div>
+                            </figure>
+                            <div class="product-details">
+                                <div class="product-cat">
+                                    <a href="demo23-shop.html">categories</a>
+                                </div>
+                                <h3 class="product-name">
+                                    <a href="demo23-product.html">Tiny Casual Audio</a>
+                                </h3>
+                                <div class="product-price">
+                                    <span class="price">$35.00</span>
+                                </div>
+                                <div class="ratings-container">
+                                    <div class="ratings-full">
+                                        <span class="ratings" style="width:100%"></span>
+                                        <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                </article>
+                                    <a href="demo23-product.html" class="rating-reviews">( 5 )</a>
+                                </div>
                             </div>
-                            <div class="blog-post mb-4">
-                                <article class="post post-frame overlay-zoom">
-                                    <figure class="post-media">
-                                        <a href="post-single.html">
-                                            <img src="~/UI/images/blog/frame/3.jpg" alt="Blog post" width="340" height="206"
-                                                 style="background-color: #eaeef1;" />
-                                        </a>
-                                        <div class="post-calendar">
-                                            <span class="post-day">19</span>
-                                            <span class="post-month">JAN</span>
-                                        </div>
-                                    </figure>
-                                    <div class="post-details">
-                                        <h4 class="post-title">
-                                            <a href="post-single.html">
-                                                20% Off Coupon for Cyber
-                                                Week
-                                            </a>
-                                        </h4>
-                                        <p class="post-content">
-                                            Lorem ipsum dolor sit amet,onadipiscing elit, sedsd
-                                            doeiu smod tempo...
-                                        </p>
-                                        <a href="post-single.html" class="btn btn-primary btn-link btn-underline">
-                                            Read
-                                            More<i class="d-icon-arrow-right"></i>
-                                        </a>
+                        </div>
+                        <div class="product text-center">
+                            <figure class="product-media">
+                                <a href="demo23-product.html">
+                                    <img src="~/UI/images/demos/demo23/products/24.jpg" alt="product" width="300"
+                                         height="332">
+                                    <img src="~/UI/images/demos/demo23/products/24-1.jpg" alt="product" width="300"
+                                         height="332">
+                                </a>
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                       data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                        <i class="d-icon-heart"></i>
+                                    </a>
+                                </div>
+                                <div class="product-action">
+                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                </div>
+                            </figure>
+                            <div class="product-details">
+                                <div class="product-cat">
+                                    <a href="demo23-shop.html">categories</a>
+                                </div>
+                                <h3 class="product-name">
+                                    <a href="demo23-product.html">Multi-Functional Phone</a>
+                                </h3>
+                                <div class="product-price">
+                                    <span class="price">$35.00</span>
+                                </div>
+                                <div class="ratings-container">
+                                    <div class="ratings-full">
+                                        <span class="ratings" style="width:100%"></span>
+                                        <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                </article>
+                                    <a href="demo23-product.html" class="rating-reviews">( 1 )</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product text-center">
+                            <figure class="product-media">
+                                <a href="demo23-product.html">
+                                    <img src="~/UI/images/demos/demo23/products/25.jpg" alt="product" width="300"
+                                         height="332">
+                                    <img src="~/UI/images/demos/demo23/products/25-1.jpg" alt="product" width="300"
+                                         height="332">
+                                </a>
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                       data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                        <i class="d-icon-heart"></i>
+                                    </a>
+                                </div>
+                                <div class="product-action">
+                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                </div>
+                            </figure>
+                            <div class="product-details">
+                                <div class="product-cat">
+                                    <a href="demo23-shop.html">categories</a>
+                                </div>
+                                <h3 class="product-name">
+                                    <a href="demo23-product.html">Tv Controller</a>
+                                </h3>
+                                <div class="product-price">
+                                    <span class="price">$35.00</span>
+                                </div>
+                                <div class="ratings-container">
+                                    <div class="ratings-full">
+                                        <span class="ratings" style="width:100%"></span>
+                                        <span class="tooltiptext tooltip-top"></span>
+                                    </div>
+                                    <a href="demo23-product.html" class="rating-reviews">( 6 )</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product text-center">
+                            <figure class="product-media">
+                                <a href="demo23-product.html">
+                                    <img src="~/UI/images/demos/demo23/products/26.jpg" alt="product" width="300"
+                                         height="332">
+                                    <img src="~/UI/images/demos/demo23/products/26-1.jpg" alt="product" width="300"
+                                         height="332">
+                                </a>
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
+                                       data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist">
+                                        <i class="d-icon-heart"></i>
+                                    </a>
+                                </div>
+                                <div class="product-action">
+                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                </div>
+                            </figure>
+                            <div class="product-details">
+                                <div class="product-cat">
+                                    <a href="demo23-shop.html">categories</a>
+                                </div>
+                                <h3 class="product-name">
+                                    <a href="demo23-product.html">Fashionable Brown Denim Shoes</a>
+                                </h3>
+                                <div class="product-price">
+                                    <span class="price">$35.00</span>
+                                </div>
+                                <div class="ratings-container">
+                                    <div class="ratings-full">
+                                        <span class="ratings" style="width:100%"></span>
+                                        <span class="tooltiptext tooltip-top"></span>
+                                    </div>
+                                    <a href="demo23-product.html" class="rating-reviews">( 7 )</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
-
-                <section class="mt-2 pb-6 pt-10 pb-md-10 appear-animate" data-animation-options="{
-                    'delay': '.3s'
-                }">
-                    <h2 class="title d-none">Our Brand</h2>
-                    <div class="container">
-                        <div class="owl-carousel owl-theme row brand-carousel cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2"
-                             data-owl-options="{
-                            'nav': false,
-                            'dots': false,
-                            'autoplay': true,
-                            'margin': 20,
-                            'loop': true,
-                            'responsive': {
-                                '0': {
-                                    'items': 2
-                                },
-                                '576': {
-                                    'items': 3
-                                },
-                                '768': {
-                                    'items': 4
-                                },
-                                '992': {
-                                    'items': 5
-                                },
-                                '1200': {
-                                    'items': 6
-                                }
+                <section class="blog container mt-10 pt-2 mb-10 pb-10 appear-animate">
+                    <h2 class="title title-simple text-left">From our Blog</h2>
+                    <div class="owl-carousel owl-theme row cols-lg-4 cols-md-3 cols-sm-2 cols-1" data-owl-options="{
+                        'items': 4,
+                        'margin': 20,
+                        'loop': false,
+                        'responsive': {
+                            '0': {
+                                'items': 1
+                            },
+                            '576': {
+                                'items': 2
+                            },
+                            '768': {
+                                'items': 3
+                            },
+                            '992': {
+                                'items': 4
                             }
+                        }
+                    }">
+                        <div class="post overlay-zoom appear-animate overlay-dark" data-animation-options="{
+                            'name': 'zoomInShorter'
                         }">
-                            <figure>
-                                <img src="~/UI/images/brands/1.png" alt="brand" width="180" height="100" />
+                            <figure class="post-media">
+                                <a href="post-single.html">
+                                    <img src="~/UI/images/demos/demo23/blog/1.jpg" width="280" height="189" alt="post" />
+                                </a>
                             </figure>
-                            <figure>
-                                <img src="~/UI/images/brands/2.png" alt="brand" width="180" height="100" />
-                            </figure>
-                            <figure>
-                                <img src="~/UI/images/brands/3.png" alt="brand" width="180" height="100" />
-                            </figure>
-                            <figure>
-                                <img src="~/UI/images/brands/4.png" alt="brand" width="180" height="100" />
-                            </figure>
-                            <figure>
-                                <img src="~/UI/images/brands/5.png" alt="brand" width="180" height="100" />
-                            </figure>
-                            <figure>
-                                <img src="~/UI/images/brands/6.png" alt="brand" width="180" height="100" />
-                            </figure>
+                            <div class="post-details">
+                                <div class="post-meta">
+                                    on <a href="post-single.html" class="post-date">September 6, 2020</a>
+                                    &nbsp;|&nbsp; <a href="post-single.html" class="post-comment">
+                                        <span>1</span>
+                                        Comments
+                                    </a>
+                                </div>
+                                <h3 class="post-title"><a href="post-single.html">Complete Set Of Ski Tools.</a></h3>
+                                <a href="post-single.html" class="btn btn-link btn-underline">
+                                    Read More<i class="d-icon-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </section>
-
-                <section class="product-widget-wrapper pb-2 pb-md-10 appear-animate">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-3 col-sm-6 mb-4">
-                                <div class="widget widget-products appear-animate" data-animation-options="{
-                                    'name': 'fadeInLeftShorter',
-                                    'delay': '.5s'
-                                }">
-                                    <h4 class="widget-title border-no lh-1 font-weight-bold">Sale Products</h4>
-                                    <div class="products-col">
-                                        <div class="product product-list-sm">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="~/UI/images/demos/demo1/products/product10.jpg" alt="product"
-                                                         width="100" height="114" style="background-color: #f2f3f5;" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="product.html">
-                                                        Women’s Beautiful
-                                                        Headgear
-                                                    </a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <span class="price">$78.24</span>
-                                                </div>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:40%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-list-sm">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="~/UI/images/demos/demo1/products/product11.jpg" alt="product"
-                                                         width="100" height="114" style="background-color: #f2f3f5;" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="product.html">Hand Electric Cell</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <span class="price">$26.00</span>
-                                                </div>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:100%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-list-sm">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="~/UI/images/demos/demo1/products/product12.jpg" alt="product"
-                                                         width="100" height="114" style="background-color: #f2f3f5;" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="product.html">
-                                                        Women Hempen Hood
-                                                        a Mourner
-                                                    </a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <span class="price">$30.00</span>
-                                                </div>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:20%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="post overlay-zoom appear-animate overlay-dark" data-animation-options="{
+                            'name': 'zoomInShorter',
+                            'delay': '.2s'
+                        }">
+                            <figure class="post-media">
+                                <a href="post-single.html">
+                                    <img src="~/UI/images/demos/demo23/blog/2.jpg" width="280" height="189" alt="post" />
+                                </a>
+                            </figure>
+                            <div class="post-details">
+                                <div class="post-meta">
+                                    on <a href="post-single.html" class="post-date">September 6, 2020</a>
+                                    &nbsp;|&nbsp; <a href="post-single.html" class="post-comment">
+                                        <span>1</span>
+                                        Comments
+                                    </a>
                                 </div>
+                                <h3 class="post-title"><a href="post-single.html">Utaliquam sollicitudin leo.</a></h3>
+                                <a href="post-single.html" class="btn btn-link btn-underline">
+                                    Read More<i class="d-icon-arrow-right"></i>
+                                </a>
                             </div>
-                            <div class="col-lg-3 col-sm-6 mb-4">
-                                <div class="widget widget-products appear-animate" data-animation-options="{
-                                    'name': 'fadeInLeftShorter',
-                                    'delay': '.3s'
-                                }">
-                                    <h4 class="widget-title border-no lh-1 font-weight-bold">Latest Products</h4>
-                                    <div class="products-col">
-                                        <div class="product product-list-sm">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="~/UI/images/demos/demo1/products/product13.jpg" alt="product"
-                                                         width="100" height="114" style="background-color: #f2f3f5;" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="product.html">
-                                                        Fashionable Orginal
-                                                        Trucker
-                                                    </a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <span class="price">$78.64</span>
-                                                </div>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:40%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-list-sm">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="~/UI/images/demos/demo1/products/product14.jpg" alt="product"
-                                                         width="100" height="114" style="background-color: #f2f3f5;" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="product.html">Men Summer Sneaker</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <span class="price">$79.45</span>
-                                                </div>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:60%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-list-sm">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="~/UI/images/demos/demo1/products/product15.jpg" alt="product"
-                                                         width="100" height="114" style="background-color: #f2f3f5;" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="product.html">Season Sports Cap</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <span class="price">$64.27</span>
-                                                </div>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:10%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        </div>
+                        <div class="post overlay-zoom appear-animate overlay-dark" data-animation-options="{
+                            'name': 'zoomInShorter',
+                            'delay': '.3s'
+                        }">
+                            <figure class="post-media">
+                                <a href="post-single.html">
+                                    <img src="~/UI/images/demos/demo23/blog/3.jpg" width="280" height="189" alt="post" />
+                                </a>
+                            </figure>
+                            <div class="post-details">
+                                <div class="post-meta">
+                                    on <a href="post-single.html" class="post-date">September 6, 2020</a>
+                                    &nbsp;|&nbsp; <a href="post-single.html" class="post-comment">
+                                        <span>1</span>
+                                        Comments
+                                    </a>
                                 </div>
+                                <h3 class="post-title"><a href="post-single.html">Fusce pellentesque suscipit.</a></h3>
+                                <a href="post-single.html" class="btn btn-link btn-underline">
+                                    Read More<i class="d-icon-arrow-right"></i>
+                                </a>
                             </div>
-                            <div class="col-lg-3 col-sm-6 mb-4">
-                                <div class="widget widget-products appear-animate" data-animation-options="{
-                                    'name': 'fadeInRightShorter',
-                                    'delay': '.3s'
-                                }">
-                                    <h4 class="widget-title border-no lh-1 font-weight-bold">Best of the Week</h4>
-                                    <div class="products-col">
-                                        <div class="product product-list-sm">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="~/UI/images/demos/demo1/products/product16.jpg" alt="product"
-                                                         width="100" height="114" style="background-color: #f2f3f5;" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="product.html">Blue Sports Shoes</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <span class="price">$36.00</span>
-                                                </div>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:10%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-list-sm">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="~/UI/images/demos/demo1/products/product17.jpg" alt="product"
-                                                         width="100" height="114" style="background-color: #f2f3f5;" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="product.html">Fashion Handbag</a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$53.99</ins><del class="old-price">$67.99</del>
-                                                </div>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:100%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-list-sm">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="~/UI/images/demos/demo1/products/product18.jpg" alt="product"
-                                                         width="100" height="114" style="background-color: #f2f3f5;" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="product.html">
-                                                        Women’s Beautiful
-                                                        Headgear
-                                                    </a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <span class="price">$82.23</span>
-                                                </div>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:60%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        </div>
+                        <div class="post overlay-zoom appear-animate overlay-dark" data-animation-options="{
+                            'name': 'zoomInShorter',
+                            'delay': '.4s'
+                        }">
+                            <figure class="post-media">
+                                <a href="post-single.html">
+                                    <img src="~/UI/images/demos/demo23/blog/4.jpg" width="280" height="189" alt="post" />
+                                </a>
+                            </figure>
+                            <div class="post-details">
+                                <div class="post-meta">
+                                    on <a href="post-single.html" class="post-date">September 6, 2020</a>
+                                    &nbsp;|&nbsp; <a href="post-single.html" class="post-comment">
+                                        <span>1</span>
+                                        Comments
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 mb-4">
-                                <div class="widget widget-products appear-animate" data-animation-options="{
-                                    'name': 'fadeInRightShorter',
-                                    'delay': '.5s'
-                                }">
-                                    <h4 class="widget-title border-no lh-1 font-weight-bold">Popular</h4>
-                                    <div class="products-col">
-                                        <div class="product product-list-sm">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="~/UI/images/demos/demo1/products/product19.jpg" alt="product"
-                                                         width="100" height="114" style="background-color: #f2f3f5;" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="product.html">
-                                                        Fashion Electric Wrist
-                                                        Watch
-                                                    </a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <span class="price">$270.99</span>
-                                                </div>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:40%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-list-sm">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="~/UI/images/demos/demo1/products/product20.jpg" alt="product"
-                                                         width="100" height="114" style="background-color: #f2f3f5;" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="product.html">
-                                                        Mackintosh Poket
-                                                        Backpack
-                                                    </a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <ins class="new-price">$125.99</ins><del class="old-price">$160.99</del>
-                                                </div>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:60%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product product-list-sm">
-                                            <figure class="product-media">
-                                                <a href="product.html">
-                                                    <img src="~/UI/images/demos/demo1/products/product21.jpg" alt="product"
-                                                         width="100" height="114" style="background-color: #f2f3f5;" />
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href="product.html">
-                                                        Hempen Hood a
-                                                        Mourner
-                                                    </a>
-                                                </h3>
-                                                <div class="product-price">
-                                                    <span class="price">$12.83</span>
-                                                </div>
-                                                <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:10%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h3 class="post-title"><a href="post-single.html">Utaliquam sollicitudin leo</a></h3>
+                                <a href="post-single.html" class="btn btn-link btn-underline">
+                                    Read More<i class="d-icon-arrow-right"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
         </main>
-
-        <!-- End of Main -->
+        <!-- End Main -->
         <footer class="footer">
             <div class="container">
                 <div class="footer-top">
                     <div class="row align-items-center">
                         <div class="col-lg-3">
-                            <a href="demo1.html" class="logo-footer">
-                                <img src="~/UI/images/logo-footer.png" alt="logo-footer" width="154" height="43" />
+                            <a href="demo23.html" class="logo-footer">
+                                <img src="~/UI/images/demos/demo23/logo-footer.png" alt="logo-footer" width="154"
+                                     height="43" />
                             </a>
                             <!-- End FooterLogo -->
                         </div>
@@ -1702,7 +1843,7 @@
                             <div class="widget widget-newsletter form-wrapper form-wrapper-inline">
                                 <div class="newsletter-info mx-auto mr-lg-2 ml-lg-4">
                                     <h4 class="widget-title">Subscribe to our Newsletter</h4>
-                                    <p>Get all the latest information, Sales and Offers.</p>
+                                    <p class="mb-0">Get all the latest information, Sales and Offers.</p>
                                 </div>
                                 <form action="#" class="input-wrapper input-wrapper-inline">
                                     <input type="email" class="form-control" name="email" id="email"
@@ -1729,11 +1870,11 @@
                                     </li>
                                     <li>
                                         <label>Email:</label>
-                                        <a href="mailto:mail@riode.com">mail@riode.com</a>
+                                        <a href="mailto:mail@riode.com">riode@mail.com</a>
                                     </li>
                                     <li>
                                         <label>Address:</label>
-                                        <a href="#">123 Street Name, City, England</a>
+                                        <a href="#">123 Street, City, Country</a>
                                     </li>
                                     <li>
                                         <label>WORKING DAYS / HOURS:</label>
@@ -1747,7 +1888,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="widget ml-lg-4">
-                                <h4 class="widget-title">My Account</h4>
+                                <h4 class="widget-title">About Us</h4>
                                 <ul class="widget-body">
                                     <li>
                                         <a href="about-us.html">About Us</a>
@@ -1770,7 +1911,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="widget ml-lg-4">
-                                <h4 class="widget-title">Contact Info</h4>
+                                <h4 class="widget-title">My Account</h4>
                                 <ul class="widget-body">
                                     <li>
                                         <a href="#">Sign in</a>
@@ -1850,11 +1991,11 @@
     </div>
     <!-- Sticky Footer -->
     <div class="sticky-footer sticky-content fix-bottom">
-        <a href="demo1.html" class="sticky-link active">
+        <a href="demo23.html" class="sticky-link active">
             <i class="d-icon-home"></i>
             <span>Home</span>
         </a>
-        <a href="shop.html" class="sticky-link">
+        <a href="demo23-shop.html" class="sticky-link">
             <i class="d-icon-volume"></i>
             <span>Categories</span>
         </a>
@@ -1887,9 +2028,9 @@
     <div class="mobile-menu-wrapper">
         <div class="mobile-menu-overlay">
         </div>
-        <!-- End of Overlay -->
+        <!-- End Overlay -->
         <a class="mobile-menu-close" href="#"><i class="d-icon-times"></i></a>
-        <!-- End of CloseButton -->
+        <!-- End CloseButton -->
         <div class="mobile-menu-container scrollable">
             <form action="#" class="input-wrapper">
                 <input type="text" class="form-control" name="search" autocomplete="off"
@@ -1898,13 +2039,13 @@
                     <i class="d-icon-search"></i>
                 </button>
             </form>
-            <!-- End of Search Form -->
+            <!-- End Search Form -->
             <ul class="mobile-menu mmenu-anim">
                 <li>
-                    <a href="demo1.html">Home</a>
+                    <a href="demo23.html">Home</a>
                 </li>
                 <li>
-                    <a href="shop.html">Categories</a>
+                    <a href="demo23-shop.html">Categories</a>
                     <ul>
                         <li>
                             <a href="#">
@@ -1913,7 +2054,7 @@
                             <ul>
                                 <li><a href="shop-banner-sidebar.html">Banner With Sidebar</a></li>
                                 <li><a href="shop-boxed-banner.html">Boxed Banner</a></li>
-                                <li><a href="shop-infinite-scroll.html">Infinite ajaxscroll</a></li>
+                                <li><a href="shop-infinite-scroll.html">Infinite Ajaxscroll</a></li>
                                 <li><a href="shop-horizontal-filter.html">Horizontal Filter</a></li>
                                 <li>
                                     <a href="shop-navigation-filter.html">
@@ -1921,7 +2062,7 @@
                                     </a>
                                 </li>
 
-                                <li><a href="shop-off-canvas.html">Off-Canvas Filter</a></li>
+                                <li><a href="demo23-shop.html">Off-Canvas Filter</a></li>
                                 <li><a href="shop-right-sidebar.html">Right Toggle Sidebar</a></li>
                             </ul>
                         </li>
@@ -1947,7 +2088,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="product.html">Products</a>
+                    <a href="demo23-product.html">Products</a>
                     <ul>
                         <li>
                             <a href="#">Product Pages</a>
@@ -2048,19 +2189,13 @@
                         <li><a href="element-icons.html">Icons</a></li>
                     </ul>
                 </li>
-                <li><a href="https://d-themes.com/buynow/riodehtml" target="_blank">Buy Riode!</a></li>
+                <li><a href="https://d-themes.com/buynow/riodehtml">Buy Riode!</a></li>
             </ul>
-            <!-- End of MobileMenu -->
-            <!-- <ul class="mobile-menu mmenu-anim">
-                <li><a href="login.html">Login</a></li>
-                <li><a href="cart.html">My Cart</a></li>
-                <li><a href="wishlist.html">Wishlist</a></li>
-            </ul> -->
-            <!-- End of MobileMenu -->
+            <!-- End MobileMenu -->
         </div>
     </div>
 
-    <div class="newsletter-popup mfp-hide" id="newsletter-popup" style="background-image: url(~/UI/images/newsletter-popup.jpg)">
+    <div class="newsletter-popup mfp-hide" id="newsletter-popup" style="background-image: url(/UI/images/newsletter-popup.jpg)">
         <div class="newsletter-content">
             <h4 class="text-uppercase text-dark">Up to <span class="text-primary">20% Off</span></h4>
             <h2 class="font-weight-semi-bold">Sign up to <span>RIODE</span></h2>
@@ -2083,14 +2218,28 @@
 
     <!-- Plugins JS File -->
     <script src="~/UI/vendor/jquery/jquery.min.js"></script>
-    <script src="~/UI/vendor/parallax/parallax.min.js"></script>
-    <script src="~/ui/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="~/UI/vendor/elevatezoom/jquery.elevatezoom.min.js"></script>
     <script src="~/UI/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
     <script src="~/UI/vendor/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/UI/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/UI/vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/UI/vendor/jquery.plugin/jquery.plugin.min.js"></script>
+    <script src="~/UI/vendor/jquery.countdown/jquery.countdown.min.js"></script>
     <!-- Main JS File -->
     <script src="~/UI/js/main.min.js"></script>
-</body>
 
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                url: "https://localhost:44397/home/contact",
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+        });
+    </script>
+</body>
 
 </html>
