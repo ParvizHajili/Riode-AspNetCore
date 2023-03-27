@@ -11,23 +11,23 @@
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Riode - eCommerce Template">
     <meta name="author" content="D-THEMES">
-   
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="~/UI/images/icons/favicon.png">
 
+    <script src="~/UI/js/webfont.js" async=""></script>
     <script>
         WebFontConfig = {
             google: { families: ['Poppins:400,500,600,700,800'] }
         };
         (function (d) {
             var wf = d.createElement('script'), s = d.scripts[0];
-            wf.src =`/UI/js/webfont.js`;
+            wf.src = `/UI/js/webfont.js`;
             wf.async = false;
             s.parentNode.insertBefore(wf, s);
         })(document);
     </script>
-    @*<script src="~/UI/js/webfont.js" async=""></script>*@
-    
+
 
     <link rel="stylesheet" type="text/css" href="~/UI/vendor/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="~/UI/vendor/animate/animate.min.css">
@@ -37,8 +37,9 @@
     <link rel="stylesheet" type="text/css" href="~/UI/vendor/owl-carousel/owl.carousel.min.css">
 
     <!-- Main CSS File -->
-    @*<link rel="stylesheet" type="text/css" href="~/UI/css/demo23.min.css">*@
-    <link rel="stylesheet" href="~/ui/css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/UI/css/demo23.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800" media="all">
+
 </head>
 
 <body class="home">
@@ -232,7 +233,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="header-bottom d-lg-show">
                 <div class="container">
                     <div class="header-left">
@@ -242,10 +242,11 @@
                                     <a asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
                                 <li>
-                                    <a asp-controller="Shop" asp-action="Index">Shop</a>
+                                    <a asp-controller="Home" asp-action="AboutUs">About</a>
                                 </li>
+                                <li class="submenu">
                                 <li>
-                                    <a href="demo23-shop.html">Categories</a>
+                                    <a asp-controller="Shop" asp-action="Index">Shop</a>
                                     <div class="megamenu">
                                         <div class="row">
                                             <div class="col-6 col-sm-4 col-md-3 col-lg-4">
@@ -257,11 +258,7 @@
                                                     <li>
                                                         <a href="shop-horizontal-filter.html">Horizontal Filter</a>
                                                     </li>
-                                                    <li>
-                                                        <a href="shop-navigation-filter.html">
-                                                            Navigation Filter<span class="tip tip-hot">Hot</span>
-                                                        </a>
-                                                    </li>
+                                                    <li><a href="shop-navigation-filter.html">Navigation Filter<span class="tip tip-hot">Hot</span></a></li>
 
                                                     <li><a href="shop-off-canvas.html">Off-Canvas Filter</a></li>
                                                     <li><a href="shop-right-sidebar.html">Right Toggle Sidebar</a></li>
@@ -271,11 +268,7 @@
                                                 <h4 class="menu-title">Variations 2</h4>
                                                 <ul>
 
-                                                    <li>
-                                                        <a href="shop-grid-3cols.html">
-                                                            3 Columns Mode<span class="tip tip-new">New</span>
-                                                        </a>
-                                                    </li>
+                                                    <li><a href="shop-grid-3cols.html">3 Columns Mode<span class="tip tip-new">New</span></a></li>
                                                     <li><a href="shop-grid-4cols.html">4 Columns Mode</a></li>
                                                     <li><a href="shop-grid-5cols.html">5 Columns Mode</a></li>
                                                     <li><a href="shop-grid-6cols.html">6 Columns Mode</a></li>
@@ -286,16 +279,13 @@
                                             </div>
                                             <div class="col-6 col-sm-4 col-md-3 col-lg-4 menu-banner menu-banner1 banner banner-fixed">
                                                 <figure>
-                                                    <img src="~/UI/images/menu/banner-1.jpg" alt="Menu banner" width="221"
-                                                         height="330" />
+                                                    <img src="~/UI/images/menu/banner-1.jpg" alt="Menu banner" width="221" height="330">
                                                 </figure>
                                                 <div class="banner-content y-50">
                                                     <h4 class="banner-subtitle font-weight-bold text-primary ls-m">
                                                         Sale.
                                                     </h4>
-                                                    <h3 class="banner-title font-weight-bold">
-                                                        <span class="text-uppercase">Up to</span>70% Off
-                                                    </h3>
+                                                    <h3 class="banner-title font-weight-bold"><span class="text-uppercase">Up to</span>70% Off</h3>
                                                     <a href="demo23-shop.html" class="btn btn-link btn-underline">
                                                         shop
                                                         now<i class="d-icon-arrow-right"></i>
@@ -306,134 +296,18 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <a href="demo23-product.html">Products</a>
-                                    <div class="megamenu">
-                                        <div class="row">
-                                            <div class="col-6 col-sm-4 col-md-3 col-lg-4">
-                                                <h4 class="menu-title">Product Pages</h4>
-                                                <ul>
-                                                    <li><a href="product-simple.html">Simple Product</a></li>
-                                                    <li><a href="product.html">Variable Product</a></li>
-                                                    <li><a href="product-sale.html">Sale Product</a></li>
-                                                    <li><a href="product-featured.html">Featured &amp; On Sale</a></li>
 
-                                                    <li><a href="product-left-sidebar.html">With Left Sidebar</a></li>
-                                                    <li><a href="product-right-sidebar.html">With Right Sidebar</a></li>
-                                                    <li>
-                                                        <a href="product-sticky-cart.html">
-                                                            Add Cart Sticky<span class="tip tip-hot">Hot</span>
-                                                        </a>
-                                                    </li>
-                                                    <li><a href="product-tabinside.html">Tab Inside</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-6 col-sm-4 col-md-3 col-lg-4">
-                                                <h4 class="menu-title">Product Layouts</h4>
-                                                <ul>
-                                                    <li>
-                                                        <a href="product-grid.html">
-                                                            Grid Images<span class="tip tip-new">New</span>
-                                                        </a>
-                                                    </li>
-                                                    <li><a href="product-masonry.html">Masonry</a></li>
-                                                    <li><a href="product-gallery.html">Gallery Type</a></li>
-                                                    <li><a href="product-full.html">Full Width Layout</a></li>
-                                                    <li><a href="product-sticky.html">Sticky Info</a></li>
-                                                    <li>
-                                                        <a href="product-sticky-both.html">Left &amp; Right Sticky</a>
-                                                    </li>
-                                                    <li><a href="product-horizontal.html">Horizontal Thumb</a></li>
-
-                                                    <li><a href="#">Build Your Own</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-6 col-sm-4 col-md-3 col-lg-4 menu-banner menu-banner2 banner banner-fixed">
-                                                <figure>
-                                                    <img src="~/UI/images/menu/banner-2.jpg" alt="Menu banner" width="221"
-                                                         height="330" />
-                                                </figure>
-                                                <div class="banner-content x-50 text-center">
-                                                    <h3 class="banner-title text-white text-uppercase">Sunglasses</h3>
-                                                    <h4 class="banner-subtitle font-weight-bold text-white mb-0">
-                                                        $23.00
-                                                        -
-                                                        $120.00
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                            <!-- End MegaMenu -->
-                                        </div>
-                                    </div>
+                                <li>
+                                    <a asp-controller="Home" asp-action="Faqs">FAQs</a>
                                 </li>
                                 <li>
-                                    <a href="#">Pages</a>
-                                    <ul>
-                                        <li><a asp-controller="Home" asp-action="AboutUs">About</a></li>
-                                        <li><a asp-controller="Home" asp-action="Contact">Contact Us</a></li>
-                                        <li><a asp-controller="Account" asp-action="Profile">My Account</a></li>
-                                        <li><a asp-controller="Account" asp-action="WishList">Wishlist</a></li>
-                                        <li><a asp-controller="Home" asp-action="Faqs">FAQs</a></li>
-                                        <li><a href="error-404.html">Error 404</a></li>
-                                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                                    </ul>
+                                    <a asp-controller="Account" asp-action="Profile">My Account</a>
                                 </li>
                                 <li>
-                                    <a href="blog-classic.html">Blog</a>
-                                    <ul>
-                                        <li><a href="blog-classic.html">Classic</a></li>
-                                        <li><a href="blog-listing.html">Listing</a></li>
-                                        <li>
-                                            <a href="#">Grid</a>
-                                            <ul>
-                                                <li><a href="blog-grid-2col.html">Grid 2 columns</a></li>
-                                                <li><a href="blog-grid-3col.html">Grid 3 columns</a></li>
-                                                <li><a href="blog-grid-4col.html">Grid 4 columns</a></li>
-                                                <li><a href="blog-grid-sidebar.html">Grid sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">Masonry</a>
-                                            <ul>
-                                                <li><a href="blog-masonry-2col.html">Masonry 2 columns</a></li>
-                                                <li><a href="blog-masonry-3col.html">Masonry 3 columns</a></li>
-                                                <li><a href="blog-masonry-4col.html">Masonry 4 columns</a></li>
-                                                <li><a href="blog-masonry-sidebar.html">Masonry sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">Mask</a>
-                                            <ul>
-                                                <li><a href="blog-mask-grid.html">Blog mask grid</a></li>
-                                                <li><a href="blog-mask-masonry.html">Blog mask masonry</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="post-single.html">Single Post</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="d-xl-show">
-                                    <a href="#">Elements</a>
-                                    <ul>
-                                        <li><a href="element-products.html">Products</a></li>
-                                        <li><a href="element-typography.html">Typography</a></li>
-                                        <li><a href="element-titles.html">Titles</a></li>
-                                        <li><a href="element-categories.html">Product Category</a></li>
-                                        <li><a href="element-buttons.html">Buttons</a></li>
-                                        <li><a href="element-accordions.html">Accordions</a></li>
-                                        <li><a href="element-alerts.html">Alert &amp; Notification</a></li>
-                                        <li><a href="element-tabs.html">Tabs</a></li>
-                                        <li><a href="element-testimonials.html">Testimonials</a></li>
-                                        <li><a href="element-blog-posts.html">Blog Posts</a></li>
-                                        <li><a href="element-instagrams.html">Instagrams</a></li>
-                                        <li><a href="element-cta.html">Call to Action</a></li>
-                                        <li><a href="element-icon-boxes.html">Icon Boxes</a></li>
-                                        <li><a href="element-icons.html">Icons</a></li>
-                                    </ul>
+                                    <a asp-controller="Blog" asp-action="Index">Blog</a>
                                 </li>
                                 <li>
-                                    <a asp-controller="Home" asp-action="AboutUs">About Us</a>
+                                    <a asp-controller="Home" asp-action="Contact">Contact Us</a>
                                 </li>
                             </ul>
                         </nav>
@@ -460,22 +334,22 @@
                             </a>
                             <!-- End FooterLogo -->
                         </div>
-                        <div class="col-lg-9">
-                             <div class="widget widget-newsletter form-wrapper form-wrapper-inline">
-                            <div class="newsletter-info mx-auto mr-lg-2 ml-lg-4">
-                            <h4 class="widget-title">Subscribe to our Newsletter</h4>
-                            <p class="mb-0">Get all the latest information, Sales and Offers.</p>
-                            </div>
-                            <form action="#" class="input-wrapper input-wrapper-inline">
-                            <input type="email" class="form-control" name="email" id="email"
-                            placeholder="Email address here..." required />
-                            <button class="btn btn-primary btn-rounded btn-md ml-2" type="submit">
-                            subscribe<i class="d-icon-arrow-right"></i>
-                            </button>
-                            </form>
-                            </div>
-                            <!-- End Newsletter -->
+                        @*<div class="col-lg-9">
+                        <div class="widget widget-newsletter form-wrapper form-wrapper-inline">
+                        <div class="newsletter-info mx-auto mr-lg-2 ml-lg-4">
+                        <h4 class="widget-title">Subscribe to our Newsletter</h4>
+                        <p class="mb-0">Get all the latest information, Sales and Offers.</p>
                         </div>
+                        <form action="#" class="input-wrapper input-wrapper-inline">
+                        <input type="email" class="form-control" name="email" id="email"
+                        placeholder="Email address here..." required />
+                        <button class="btn btn-primary btn-rounded btn-md ml-2" type="submit">
+                        subscribe<i class="d-icon-arrow-right"></i>
+                        </button>
+                        </form>
+                        </div>
+                        <!-- End Newsletter -->
+                        </div>*@
                     </div>
                 </div>
                 <!-- End FooterTop -->
@@ -816,32 +690,31 @@
         </div>
     </div>
 
-    <div class="newsletter-popup mfp-hide" id="newsletter-popup" style="background-image: url(/UI/images/newsletter-popup.jpg)">
-        <div class="newsletter-content">
-            <h4 class="text-uppercase text-dark">Up to <span class="text-primary">20% Off</span></h4>
-            <h2 class="font-weight-semi-bold">Sign up to <span>RIODE</span></h2>
-            <p class="text-grey">
-                Subscribe to the Riode eCommerce newsletter to receive timely updates from your favorite
-                products.
-            </p>
-            <form action="#" method="get" class="input-wrapper input-wrapper-inline input-wrapper-round">
-                <input type="email" class="form-control email" name="email" id="email2" placeholder="Email address here..."
-                       required="">
-                <button class="btn btn-dark" type="submit">SUBMIT</button>
-            </form>
-            <div class="form-checkbox justify-content-center">
-                <input type="checkbox" class="custom-checkbox" id="hide-newsletter-popup" name="hide-newsletter-popup"
-                       required />
-                <label for="hide-newsletter-popup">Don't show this popup again</label>
-            </div>
-        </div>
+    @*<div class="newsletter-popup mfp-hide" id="newsletter-popup" style="background-image: url(/UI/images/newsletter-popup.jpg)">
+    <div class="newsletter-content">
+    <h4 class="text-uppercase text-dark">Up to <span class="text-primary">20% Off</span></h4>
+    <h2 class="font-weight-semi-bold">Sign up to <span>RIODE</span></h2>
+    <p class="text-grey">
+    Subscribe to the Riode eCommerce newsletter to receive timely updates from your favorite
+    products.
+    </p>
+    <form action="#" method="get" class="input-wrapper input-wrapper-inline input-wrapper-round">
+    <input type="email" class="form-control email" name="email" id="email2" placeholder="Email address here..."
+    required="">
+    <button class="btn btn-dark" type="submit">SUBMIT</button>
+    </form>
+    <div class="form-checkbox justify-content-center">
+    <input type="checkbox" class="custom-checkbox" id="hide-newsletter-popup" name="hide-newsletter-popup"
+    required />
+    <label for="hide-newsletter-popup">Don't show this popup again</label>
     </div>
+    </div>
+    </div>*@
 
     <!-- Plugins JS File -->
     <script src="~/UI/vendor/jquery/jquery.min.js"></script>
     <script src="~/UI/vendor/elevatezoom/jquery.elevatezoom.min.js"></script>
     <script src="~/UI/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
     <script src="~/UI/vendor/owl-carousel/owl.carousel.min.js"></script>
     <script src="~/UI/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="~/UI/vendor/isotope/isotope.pkgd.min.js"></script>
@@ -864,5 +737,4 @@
 
     @RenderSection("addjs",required:false)
 </body>
-
 </html>
