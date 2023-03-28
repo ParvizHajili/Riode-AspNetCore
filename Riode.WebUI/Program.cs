@@ -20,6 +20,17 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
+app.MapGet("/coming-soon.html", async (context) =>
+{
+    using (var stream = new StreamReader("views/static/coming-soon.html"))
+    {
+        context.Response.ContentType = "text.hmtl";
+        await context.Response.WriteAsync(stream.ReadToEnd());
+    }
+});
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
