@@ -1,4 +1,4 @@
-﻿@model List<Brand>
+﻿@model ShopFilterViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -36,19 +36,35 @@
                         <div class="widget widget-collapsible">
                             <h3 class="widget-title">All Categories</h3>
                             <ul class="widget-body filter-items search-ul">
-                                <li><a href="#">Accessosries</a></li>
+
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <li>
+                                        <a href="#">@item.Name</a>
+                                        @if (item.Children != null && item.Children.Any())
+                                        {
+                                            <ul>
+                                                @foreach (var child in item.Children)
+                                                {
+                                                    <li><a href="#">@child.Name</a></li>
+                                                }
+                                            </ul>
+                                        }
+                                    </li>
+                                }
+                                @*   <li><a href="#">Accessosries</a></li>
                                 <li>
-                                    <a href="#">Bags</a>
-                                    <ul style="display: block">
-                                        <li><a href="#">Backpacks & Fashion Bags</a></li>
-                                    </ul>
+                                <a href="#">Bags</a>
+                                <ul style="display: block">
+                                <li><a href="#">Backpacks & Fashion Bags</a></li>
+                                </ul>
                                 </li>
                                 <li>
-                                    <a href="#">Electronics</a>
-                                    <ul>
-                                        <li><a href="#">Computer</a></li>
-                                        <li><a href="#">Gaming & Accessosries</a></li>
-                                    </ul>
+                                <a href="#">Electronics</a>
+                                <ul>
+                                <li><a href="#">Computer</a></li>
+                                <li><a href="#">Gaming & Accessosries</a></li>
+                                </ul>
                                 </li>
                                 <li><a href="#">For Fitness</a></li>
                                 <li><a href="#">Home & Kitchen</a></li>
@@ -58,7 +74,7 @@
                                 <li><a href="#">Summer Season's</a></li>
                                 <li><a href="#">Travel & Clothing</a></li>
                                 <li><a href="#">Watches</a></li>
-                                <li><a href="#">Women’s</a></li>
+                                <li><a href="#">Women’s</a></li>*@
                             </ul>
                         </div>
                         <div class="widget widget-collapsible">
@@ -83,25 +99,25 @@
                         <div class="widget widget-collapsible">
                             <h3 class="widget-title">Size</h3>
                             <ul class="widget-body filter-items">
-                                <li><a href="#">Extra Large</a></li>
-                                <li><a href="#">Large</a></li>
-                                <li><a href="#">Medium</a></li>
-                                <li><a href="#">Small</a></li>
+                                @foreach (var item in Model.ProductSizes)
+                                {
+                                    <li><a href="#">@item.Name</a></li>
+                                }
                             </ul>
                         </div>
                         <div class="widget widget-collapsible">
                             <h3 class="widget-title">Color</h3>
                             <ul class="widget-body filter-items">
-                                <li><a href="#">Black</a></li>
-                                <li><a href="#">Blue</a></li>
-                                <li><a href="#">Green</a></li>
-                                <li><a href="#">White</a></li>
+                                @foreach (var item in Model.ProductColors)
+                                {
+                                    <li><a href="#">@item.Name</a></li>
+                                }
                             </ul>
                         </div>
                         <div class="widget widget-collapsible">
                             <h3 class="widget-title">Brands</h3>
                             <ul class="widget-body filter-items">
-                                @foreach (var item in Model)
+                                @foreach (var item in Model.Brands)
                                 {
                                     <li><a href="#">@item.Name</a></li>
                                 }
@@ -710,7 +726,7 @@
                             $(div).append($(item).children)
                             $(item).append(div)
                         }
-                        else{
+                        else {
                             $(item).append($(item).find(`> div.product > *`))
                             $(item).find(`> div.product`).remove()
                         }
