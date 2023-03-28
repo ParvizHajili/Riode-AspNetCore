@@ -25,6 +25,7 @@ namespace Riode.WebUI.Models.DataContexts
 
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Brand> Brands { get; set; }
-        public DbSet<ProductColor> ProductColors { get; set; } 
+        public DbSet<ProductColor> ProductColors { get; set; }
+        public DbSet<ProductSize> ProductSizes { get; set; }
     }
 }
