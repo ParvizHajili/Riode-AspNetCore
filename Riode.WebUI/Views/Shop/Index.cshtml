@@ -35,47 +35,7 @@
                     <div class="sticky-sidebar">
                         <div class="widget widget-collapsible">
                             <h3 class="widget-title">All Categories</h3>
-                            <ul class="widget-body filter-items search-ul">
-
-                                @foreach (var item in Model.Categories)
-                                {
-                                    <li>
-                                        <a href="#">@item.Name</a>
-                                        @if (item.Children != null && item.Children.Any())
-                                        {
-                                            <ul>
-                                                @foreach (var child in item.Children)
-                                                {
-                                                    <li><a href="#">@child.Name</a></li>
-                                                }
-                                            </ul>
-                                        }
-                                    </li>
-                                }
-                                @*   <li><a href="#">Accessosries</a></li>
-                                <li>
-                                <a href="#">Bags</a>
-                                <ul style="display: block">
-                                <li><a href="#">Backpacks & Fashion Bags</a></li>
-                                </ul>
-                                </li>
-                                <li>
-                                <a href="#">Electronics</a>
-                                <ul>
-                                <li><a href="#">Computer</a></li>
-                                <li><a href="#">Gaming & Accessosries</a></li>
-                                </ul>
-                                </li>
-                                <li><a href="#">For Fitness</a></li>
-                                <li><a href="#">Home & Kitchen</a></li>
-                                <li><a href="#">Men's</a></li>
-                                <li><a href="#">Shoes</a></li>
-                                <li><a href="#">Sporting Goods</a></li>
-                                <li><a href="#">Summer Season's</a></li>
-                                <li><a href="#">Travel & Clothing</a></li>
-                                <li><a href="#">Watches</a></li>
-                                <li><a href="#">Women’s</a></li>*@
-                            </ul>
+                            @Html.Raw(Model.Categories.GetCategoriesRaw())
                         </div>
                         <div class="widget widget-collapsible">
                             <h3 class="widget-title">Filter by Price</h3>

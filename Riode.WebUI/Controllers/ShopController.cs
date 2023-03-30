@@ -27,6 +27,7 @@ namespace Riode.WebUI.Controllers
 
             viewModel.Categories = dbContext.Categories
                 .Include(x => x.Children)
+                .ThenInclude(x => x.Children)
                 .Where(x => x.DeletedByUserId == null && x.ParentId == null)
                 .ToList();
 
