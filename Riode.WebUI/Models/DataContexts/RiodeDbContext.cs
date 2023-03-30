@@ -5,11 +5,6 @@ namespace Riode.WebUI.Models.DataContexts
 {
     public class RiodeDbContext : DbContext
     {
-        public RiodeDbContext() : base()
-        {
-
-        }
-
         public RiodeDbContext(DbContextOptions options) : base(options)
         {
 

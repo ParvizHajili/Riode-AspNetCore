@@ -1,9 +1,14 @@
+using Riode.WebUI.Models.DataContexts;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddRouting(cfg => cfg.LowercaseUrls = true);
+
+builder.Services.AddDbContext<RiodeDbContext>(cfg => { });
+
 
 var app = builder.Build();
 

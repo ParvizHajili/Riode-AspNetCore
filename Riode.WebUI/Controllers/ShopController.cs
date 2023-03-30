@@ -8,30 +8,34 @@ namespace Riode.WebUI.Controllers
 {
     public class ShopController : Controller
     {
+        private readonly RiodeDbContext _context;
+        public ShopController(RiodeDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
-            RiodeDbContext dbContext = new RiodeDbContext();
             ShopFilterViewModel viewModel = new();
 
-            viewModel.Brands = dbContext.Brands
+            viewModel.Brands = _context.Brands
                 .Where(b => b.DeletedByUserId == null)
                 .ToList();
 
-            viewModel.ProductColors = dbContext.ProductColors
+            viewModel.ProductColors = _context.ProductColors
                 .Where(x => x.DeletedByUserId == null)
                 .ToList();
 
-            viewModel.ProductSizes = dbContext.ProductSizes
+            viewModel.ProductSizes = _context.ProductSizes
                 .Where(x => x.DeletedByUserId == null)
                 .ToList();
 
-            viewModel.Categories = dbContext.Categories
+            viewModel.Categories = _context.Categories
                 .Include(x => x.Children)
                 .ThenInclude(x => x.Children)
                 .Where(x => x.DeletedByUserId == null && x.ParentId == null)
                 .ToList();
 
-            viewModel.Products = dbContext.Products
+            viewModel.Products = _context.Products
                 .Include(x => x.Images.Where(x => x.IsMain == true))
                 .Include(x => x.Brand)
                 .Where(x => x.DeletedByUserId == null)
@@ -42,9 +46,9 @@ namespace Riode.WebUI.Controllers
 
         public IActionResult Details(int id)
         {
-            RiodeDbContext dbContext = new RiodeDbContext();
+           
 
-            var product = dbContext.Products
+            var product = _context.Products
                 .Include(x=>x.Brand)
                 .Include(x => x.Images)
                 .FirstOrDefault(x => x.Id == id && x.DeletedByUserId == null);
