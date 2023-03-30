@@ -21,11 +21,11 @@ namespace Riode.WebUI.Controllers
                 .Where(b => b.DeletedByUserId == null)
                 .ToList();
 
-            viewModel.ProductColors = _context.ProductColors
+            viewModel.Colors = _context.Colors
                 .Where(x => x.DeletedByUserId == null)
                 .ToList();
 
-            viewModel.ProductSizes = _context.ProductSizes
+            viewModel.Sizes = _context.Sizes
                 .Where(x => x.DeletedByUserId == null)
                 .ToList();
 

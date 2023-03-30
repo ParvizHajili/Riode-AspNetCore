@@ -60,7 +60,7 @@
                         <div class="widget widget-collapsible">
                             <h3 class="widget-title">Size</h3>
                             <ul class="widget-body filter-items">
-                                @foreach (var item in Model.ProductSizes)
+                                @foreach (var item in Model.Sizes)
                                 {
                                     <li><a href="#">@item.Name</a></li>
                                 }
@@ -69,7 +69,7 @@
                         <div class="widget widget-collapsible">
                             <h3 class="widget-title">Color</h3>
                             <ul class="widget-body filter-items">
-                                @foreach (var item in Model.ProductColors)
+                                @foreach (var item in Model.Colors)
                                 {
                                     <li><a href="#">@item.Name</a></li>
                                 }
