@@ -1,52 +1,32 @@
-﻿@{
+﻿@model Product
+@{
     ViewData["Title"] = "Details";
 }
 
-<div class="page-content mb-10 pb-6">
+<div class="page-content mb-10 pb-6 mt-5">
     <div class="container">
         <div class="product product-single row mb-8">
             <div class="col-md-6">
                 <div class="product-gallery pg-vertical">
                     <div class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1">
-                        <figure class="product-image">
-                            <img src="~/UI/images/product/product-3-1-580x652.jpg"
-                                 data-zoom-image="/UI/images/product/product-3-1-800x900.jpg"
-                                 alt="Women's Brown Leather Backpacks" width="800" height="900">
-                        </figure>
-                        <figure class="product-image">
-                            <img src="~/UI/images/product/product-3-2-580x652.jpg"
-                                 data-zoom-image="/UI/images/product/product-3-2-800x900.jpg"
-                                 alt="Women's Brown Leather Backpacks" width="800" height="900">
-                        </figure>
-                        <figure class="product-image">
-                            <img src="~/UI/images/product/product-3-3-580x652.jpg"
-                                 data-zoom-image="/UI/images/product/product-3-3-800x900.jpg"
-                                 alt="Women's Brown Leather Backpacks" width="800" height="900">
-                        </figure>
-                        <figure class="product-image">
-                            <img src="~/UI/images/product/product-3-4-580x652.jpg"
-                                 data-zoom-image="/UI/images/product/product-3-4-800x900.jpg"
-                                 alt="Women's Brown Leather Backpacks" width="800" height="900">
-                        </figure>
+                        @foreach (var item in Model.Images)
+                        {
+                            <figure class="product-image">
+                                <img src="~/UI/images/product/@item.ImageName"
+                                     data-zoom-image="/UI/images/product/@item.ImageName"
+                                     alt="Women's Brown Leather Backpacks" width="800" height="900">
+                            </figure>
+                        }
                     </div>
                     <div class="product-thumbs-wrap">
                         <div class="product-thumbs">
-                            <div class="product-thumb active">
-                                <img src="~/UI/images/product/product-3-1-109x122.jpg" alt="product thumbnail"
-                                     width="109" height="122">
-                            </div>
-                            <div class="product-thumb">
-                                <img src="~/UI/images/product/product-3-2-109x122.jpg" alt="product thumbnail"
-                                     width="109" height="122">
-                            </div>
-                            <div class="product-thumb">
-                                <img src="~/UI/images/product/product-3-3-109x122.jpg" alt="product thumbnail"
-                                     width="109" height="122">
-                            </div>
-                            <div class="product-thumb">
-                                <img src="~/UI/images/product/product-3-4-109x122.jpg" alt="product thumbnail"
-                                     width="109" height="122">
-                            </div>
+                            @foreach (var item in Model.Images)
+                            {
+                                <div class="product-thumb @(item.IsMain?"active":"")">
+                                    <img src="~/UI/images/product/@item.ImageName" alt="product thumbnail"
+                                         width="109" height="122">
+                                </div>
+                            }
                         </div>
                         <button class="thumb-up disabled"><i class="fas fa-chevron-left"></i></button>
                         <button class="thumb-down disabled"><i class="fas fa-chevron-right"></i></button>
@@ -86,17 +66,17 @@
                         </ul>
                     </div>
 
-                    <h1 class="product-name">Women Red Fur Overcoat</h1>
+                    <h1 class="product-name">@Model.Name</h1>
                     <div class="product-meta">
-                        SKU: <span class="product-sku">12345670</span>
-                        BRAND: <span class="product-brand">The Northland</span>
+                        SKU: <span class="product-sku">@Model.StockKeepingUnit</span>
+                        BRAND: <span class="product-brand">@Model.Brand?.Name</span>
                     </div>
                     <div class="product-price">
                         <ins class="new-price">$184.00</ins><del class="old-price">$220.00</del>
                     </div>
                     <div class="product-countdown-container font-weight-semi-bold">
-                        <label class>Off Ends In:</label>
-                        <div class="product-countdown countdown-compact" data-until="2022, 10, 5"
+                        <label>Off Ends In:</label>
+                        <div class="product-countdown countdown-compact" data-until="2999, 10, 5"
                              data-compact="true">
                             00:00:00
                         </div><!-- End of .product-countdown -->
@@ -109,9 +89,7 @@
                         <a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 6 reviews )</a>
                     </div>
                     <p class="product-short-desc">
-                        Sed egestas, ante et vulputate volutpat, eros pede semper est,
-                        vitae luctus metus libero eu augue. Morbi purus liberpuro ate vol faucibus
-                        adipiscing.
+                        @Model.ShortDescription
                     </p>
 
                     <hr class="product-divider">
@@ -603,3 +581,10 @@
     </div>
 </div>
 
+@section addjs{
+    <script>
+        $(document).ready(function (){
+            $('.product-thumb.active')[0].click('')
+        })
+    </script>
+}

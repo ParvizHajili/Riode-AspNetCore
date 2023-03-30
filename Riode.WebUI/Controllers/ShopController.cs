@@ -31,12 +31,29 @@ namespace Riode.WebUI.Controllers
                 .Where(x => x.DeletedByUserId == null && x.ParentId == null)
                 .ToList();
 
+            viewModel.Products = dbContext.Products
+                .Include(x => x.Images.Where(x => x.IsMain == true))
+                .Include(x => x.Brand)
+                .Where(x => x.DeletedByUserId == null)
+                .ToList();
+
             return View(viewModel);
         }
 
-        public IActionResult Details()
+        public IActionResult Details(int id)
         {
-            return View();
+            RiodeDbContext dbContext = new RiodeDbContext();
+
+            var product = dbContext.Products
+                .Include(x=>x.Brand)
+                .Include(x => x.Images)
+                .FirstOrDefault(x => x.Id == id && x.DeletedByUserId == null);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
         }
     }
 }
