@@ -10,14 +10,6 @@ namespace Riode.WebUI.Models.DataContexts
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Data Source=Localhost;Initial Catalog=RiodeDb;Integrated Security=true;");
-            }
-        }
-
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ProductColor> ProductColors { get; set; }

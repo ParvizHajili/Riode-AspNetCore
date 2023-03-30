@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Riode.WebUI.Models.DataContexts;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +8,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddRouting(cfg => cfg.LowercaseUrls = true);
 
-builder.Services.AddDbContext<RiodeDbContext>(cfg => { });
+builder.Services.AddDbContext<RiodeDbContext>(cfg => {
+    cfg.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"));
+});
 
 
 var app = builder.Build();
