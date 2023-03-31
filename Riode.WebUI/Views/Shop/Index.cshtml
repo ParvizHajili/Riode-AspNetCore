@@ -771,29 +771,103 @@
             })
         });
 
-        function setFilter() {
 
-            if($.setFilterProcessId != undefined){
+        function setFilter() {
+            if ($.setFilterProcessId != undefined) {
                 clearTimeout($.setFilterProcessId);
             }
 
             $.setFilterProcessId = setTimeout(function () {
-
-                const filterObj = {}
+                const filterObj = {};
 
                 $('ul[data-entity-name]').each(function (index, item) {
-                    const entityPropertyName = $(item).data('entity-name')
+                    const entityPropertyName = $(item).data('entity-name');
 
-                    filterObj[entityPropertyName] = []
+                    filterObj[entityPropertyName] = [];
 
                     $(item).find('li.active').each(function (indexLi, itemLi) {
-
-                        filterObj[entityPropertyName].push($(itemLi).data('entity-id'))
+                        filterObj[entityPropertyName].push($(itemLi).data('entity-id'));
                     });
                 });
-                console.log(filterObj)
-            },2000)
+
+                console.log(filterObj);
+
+                const filterObjJson = JSON.stringify(filterObj);
+
+                console.log(filterObjJson);
+
+                $.ajax({
+                    url: '@Url.Action("Filter","Shop")',
+                    type: 'POST',
+                    data: filterObjJson,
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    beforeSend: function () {
+                        console.log('sorguadan evvel');
+                    },
+                    success: function (response) {
+                        console.log(response);
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
+                })
+                    .always(function () {
+                        console.log('sorguadan sonra');
+                    })
+            }, 2000)
         }
+
+
+        //function setFilter() {
+
+        //    if($.setFilterProcessId != undefined){
+        //        clearTimeout($.setFilterProcessId);
+        //    }
+
+        //    $.setFilterProcessId = setTimeout(function () {
+
+        //        const filterObj = {}
+
+        //        $('ul[data-entity-name]').each(function (index, item) {
+        //            const entityPropertyName = $(item).data('entity-name')
+
+        //            filterObj[entityPropertyName] = []
+
+        //            $(item).find('li.active').each(function (indexLi, itemLi) {
+
+        //                filterObj[entityPropertyName].push($(itemLi).data('entity-id'))
+        //            });
+        //        });
+        //        console.log(filterObj)
+
+        //        const filterObjJson = JSON.stringify(filterObj)
+
+        //        console.log(filterObjJson)
+
+        //        $.ajax({
+        //            url: '@Url.Action("Filter","Shop")',
+        //            type: 'POST',
+
+        //            data: filterObjJson,
+        //            contentType: 'application/json',
+
+        //            dataType: 'application/json',
+        //            beforeSend: function(){
+        //                console.log('sorguadan evvel')
+        //            },
+        //            success: function(response){
+        //                console.log(response)
+        //            },
+        //            error: function(response){
+        //                console.log(response)
+        //            }
+        //        })
+        //            .always(function(){
+        //                console.log('sorguadan sonra')
+        //            })
+        //    },2000)
+        //}
     </script>
 }
 

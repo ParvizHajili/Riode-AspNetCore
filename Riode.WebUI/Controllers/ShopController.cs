@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Riode.WebUI.Models.DataContexts;
 using Riode.WebUI.Models.Entities;
+using Riode.WebUI.Models.FormModels;
 using Riode.WebUI.Models.ViewModels;
 
 namespace Riode.WebUI.Controllers
@@ -42,6 +43,15 @@ namespace Riode.WebUI.Controllers
                 .ToList();
 
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Filter([FromBody]ShopFilterFormModel formModel)
+        {
+            return Json(new {
+                error = false,
+                data = formModel
+            });
         }
 
         public IActionResult Details(int id)
