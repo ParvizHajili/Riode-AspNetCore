@@ -59,28 +59,34 @@
                         </div>
                         <div class="widget widget-collapsible">
                             <h3 class="widget-title">Size</h3>
-                            <ul class="widget-body filter-items">
+                            <ul class="widget-body filter-items" data-entity-name="sizes">
                                 @foreach (var item in Model.Sizes)
                                 {
-                                    <li><a href="#">@item.Name</a></li>
+                                    <li data-entity-id="@item.Id">
+                                        <a href="#">@item.Name</a>
+                                    </li>
                                 }
                             </ul>
                         </div>
                         <div class="widget widget-collapsible">
                             <h3 class="widget-title">Color</h3>
-                            <ul class="widget-body filter-items">
+                            <ul class="widget-body filter-items" data-entity-name="colors">
                                 @foreach (var item in Model.Colors)
                                 {
-                                    <li><a href="#">@item.Name</a></li>
+                                    <li data-entity-id="@item.Id">
+                                        <a href="#">@item.Name</a>
+                                    </li>
                                 }
                             </ul>
                         </div>
                         <div class="widget widget-collapsible">
                             <h3 class="widget-title">Brands</h3>
-                            <ul class="widget-body filter-items">
+                            <ul class="widget-body filter-items" data-entity-name="brands">
                                 @foreach (var item in Model.Brands)
                                 {
-                                    <li><a href="#">@item.Name</a></li>
+                                    <li data-entity-id="@item.Id">
+                                        <a href="#">@item.Name</a>
+                                    </li>
                                 }
                             </ul>
                         </div>
@@ -146,8 +152,8 @@
                                        title="Add to wishlist">
                                         <i class="d-icon-heart"></i>
                                     </a>
-                                    <a class="btn-quickview" title="Quick View" 
-                                    asp-action="Details" asp-route-id="@item.Id">
+                                    <a class="btn-quickview" title="Quick View"
+                                   asp-action="Details" asp-route-id="@item.Id">
                                         <i class="d-icon-search"></i>
                                         <label>Quick View</label>
                                     </a>
@@ -758,7 +764,36 @@
                     }
                 })
             })
-        })
+
+
+            $('ul.filter-items li').click(function (e){
+                setFilter()
+            })
+        });
+
+        function setFilter() {
+
+            if($.setFilterProcessId != undefined){
+                clearTimeout($.setFilterProcessId);
+            }
+
+            $.setFilterProcessId = setTimeout(function () {
+
+                const filterObj = {}
+
+                $('ul[data-entity-name]').each(function (index, item) {
+                    const entityPropertyName = $(item).data('entity-name')
+
+                    filterObj[entityPropertyName] = []
+
+                    $(item).find('li.active').each(function (indexLi, itemLi) {
+
+                        filterObj[entityPropertyName].push($(itemLi).data('entity-id'))
+                    });
+                });
+                console.log(filterObj)
+            },2000)
+        }
     </script>
 }
 
