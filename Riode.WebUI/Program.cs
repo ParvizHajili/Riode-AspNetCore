@@ -8,7 +8,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddRouting(cfg => cfg.LowercaseUrls = true);
 
-builder.Services.AddDbContext<RiodeDbContext>(cfg => {
+builder.Services.AddDbContext<RiodeDbContext>(cfg =>
+{
     cfg.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"));
 });
 
@@ -40,9 +41,15 @@ app.MapGet("/coming-soon.html", async (context) =>
     }
 });
 
+app.UseEndpoints(endpoints =>
+ {
+     endpoints.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
 
-app.MapControllerRoute(
+     endpoints.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+ });
 
 app.Run();
