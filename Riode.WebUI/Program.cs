@@ -55,6 +55,9 @@ builder.Services.ConfigureApplicationCookie(cfg =>
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 
+builder.Services.AddScoped<UserManager<RiodeUser>>();
+builder.Services.AddScoped<SignInManager<RiodeUser>>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
