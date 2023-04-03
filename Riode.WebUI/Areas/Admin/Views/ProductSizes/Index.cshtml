@@ -1,0 +1,138 @@
+﻿@model IEnumerable<ProductSize>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Page-header start -->
+<div class="page-header">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <div class="d-inline">
+                    <h4>Bootstrap Border Sizes</h4>
+                    <span>
+                        lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class="breadcrumb-title">
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="../index.html"> <i class="feather icon-home"></i> </a>
+                    </li>
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="#!">Ölçülər</a>
+                    </li>
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="#!">Border Table</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page-header end -->
+<!-- Page-body start -->
+<div class="page-body">
+    <!-- Horizontal-border table start -->
+    <div class="card">
+        <div class="card-header">
+            <h5>Ölçülər</h5>
+            @*<span>
+                Example of <code>horizontal</code> table borders. This is a
+                default table border style attached to <code>.table</code> class.
+                All borders have the same grey color and style, table itself doesn't
+                have a border, but you can add this border using
+                <code>.table-framed</code> class added to the table with
+                <code>.table</code> class.
+            </span>*@
+        </div>
+        <div class="card-block table-border-style">
+            <div class="table-responsive">
+                <table class="table table-framed">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Abbr)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreateByUserId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreatedDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DeletedByUserId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DeletedDate)
+                            </th>
+                            <th>
+                                <a asp-action="Create" class="btn btn-success">Create</a> 
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Abbr)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreateByUserId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DeletedByUserId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DeletedDate)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Horizontal-border table end -->
+    <!-- Vertical borders table start -->
+    @*<div class="card">
+        <div class="card-header">
+            <h5>Ölçülər</h5>
+            <span>
+                Example of <code>horizontal</code> table borders. This is a
+                default table border style attached to <code>.table</code> class.
+                All borders have the same grey color and style, table itself doesn't
+                have a border, but you can add this border using
+                <code>.table-framed</code> class added to the table with
+                <code>.table</code> class.
+            </span>
+        </div>
+    </div>*@
+</div>
+<!-- Page-body end -->

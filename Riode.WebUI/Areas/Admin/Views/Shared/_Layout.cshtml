@@ -34,6 +34,25 @@
     <link rel="stylesheet" type="text/css" href="~/admin/files/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/admin/files/assets/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="~/admin/files/assets/scss/partials/menu/_pcmenu.html">
+
+    <style>
+        p.form-control,
+        p.textarea{
+            font-size: 16px;
+            border-radius: 2px;
+            border: 1px solid #ccc;
+            margin-bottom: 0;
+        }
+
+        p.textarea{
+            min-height: 150px;
+        }
+
+        textarea.form-control{
+            min-height: 150px;
+            resize: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -379,6 +398,12 @@
                                             </a>
                                         </li>
                                     </ul>
+                                </li>
+                                <li>
+                                    <a asp-controller="ProductSizes" asp-action="Index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Ölçülər</span>
+                                    </a>
                                 </li>
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
