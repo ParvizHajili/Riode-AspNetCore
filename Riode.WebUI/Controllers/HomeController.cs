@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Riode.WebUI.Models;
 using Riode.WebUI.Models.DataContexts;
 using System.Diagnostics;
 
 namespace Riode.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly RiodeDbContext _context;

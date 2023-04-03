@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.CodeAnalysis.FlowAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Riode.WebUI.Models.DataContexts;
@@ -7,7 +9,14 @@ using Riode.WebUI.Models.Membership;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(cfg =>
+{
+    var policy = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .Build();
+
+    cfg.Filters.Add(new AuthorizeFilter(policy));
+});
 
 builder.Services.AddRouting(cfg => cfg.LowercaseUrls = true);
 
@@ -43,6 +52,9 @@ builder.Services.ConfigureApplicationCookie(cfg =>
     cfg.Cookie.Name = "riode";
 });
 
+builder.Services.AddAuthentication();
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -58,6 +70,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 

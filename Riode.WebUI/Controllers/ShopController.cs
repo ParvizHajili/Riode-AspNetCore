@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Riode.WebUI.Models.DataContexts;
 using Riode.WebUI.Models.Entities;
@@ -14,6 +15,7 @@ namespace Riode.WebUI.Controllers
         {
             _context = context;
         }
+        [AllowAnonymous]
         public IActionResult Index()
         {
             ShopFilterViewModel viewModel = new();
@@ -46,6 +48,7 @@ namespace Riode.WebUI.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult Filter([FromBody]ShopFilterFormModel formModel)
         {
             return Json(new {
@@ -54,6 +57,7 @@ namespace Riode.WebUI.Controllers
             });
         }
 
+        [AllowAnonymous]
         public IActionResult Details(int id)
         {
            
