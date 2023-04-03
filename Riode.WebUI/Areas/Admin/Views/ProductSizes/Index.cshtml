@@ -43,12 +43,12 @@
         <div class="card-header">
             <h5>Ölçülər</h5>
             @*<span>
-                Example of <code>horizontal</code> table borders. This is a
-                default table border style attached to <code>.table</code> class.
-                All borders have the same grey color and style, table itself doesn't
-                have a border, but you can add this border using
-                <code>.table-framed</code> class added to the table with
-                <code>.table</code> class.
+            Example of <code>horizontal</code> table borders. This is a
+            default table border style attached to <code>.table</code> class.
+            All borders have the same grey color and style, table itself doesn't
+            have a border, but you can add this border using
+            <code>.table-framed</code> class added to the table with
+            <code>.table</code> class.
             </span>*@
         </div>
         <div class="card-block table-border-style">
@@ -62,23 +62,11 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.Name)
                             </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Description)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.CreateByUserId)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.CreatedDate)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.DeletedByUserId)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.DeletedDate)
-                            </th>
-                            <th>
-                                <a asp-action="Create" class="btn btn-success">Create</a> 
+
+                            <th class="operate-cell">
+                                <a class="btn btn-success btn-outline-success" asp-action="Create">
+                                    <i class="fas fa-plus"></i>
+                                </a>
                             </th>
                         </tr>
                     </thead>
@@ -92,25 +80,17 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Name)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Description)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CreateByUserId)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CreatedDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.DeletedByUserId)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.DeletedDate)
-                                </td>
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                                <td class="operate-cell">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-outline-warning">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-inverse btn-outline-inverse">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-dager btn-outline-danger">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
                                 </td>
                             </tr>
                         }
@@ -122,17 +102,17 @@
     <!-- Horizontal-border table end -->
     <!-- Vertical borders table start -->
     @*<div class="card">
-        <div class="card-header">
-            <h5>Ölçülər</h5>
-            <span>
-                Example of <code>horizontal</code> table borders. This is a
-                default table border style attached to <code>.table</code> class.
-                All borders have the same grey color and style, table itself doesn't
-                have a border, but you can add this border using
-                <code>.table-framed</code> class added to the table with
-                <code>.table</code> class.
-            </span>
-        </div>
+    <div class="card-header">
+    <h5>Ölçülər</h5>
+    <span>
+    Example of <code>horizontal</code> table borders. This is a
+    default table border style attached to <code>.table</code> class.
+    All borders have the same grey color and style, table itself doesn't
+    have a border, but you can add this border using
+    <code>.table-framed</code> class added to the table with
+    <code>.table</code> class.
+    </span>
+    </div>
     </div>*@
 </div>
 <!-- Page-body end -->
