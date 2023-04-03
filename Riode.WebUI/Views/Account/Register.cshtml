@@ -1,7 +1,7 @@
-﻿@model LoginFormModel
+﻿@model RegisterFormModel
 
 @{
-    ViewData["Title"] = "Daxil Ol";
+    ViewData["Title"] = "Qeydiyyatdan Keç";
 }
 
 <nav class="breadcrumb-nav">
@@ -20,16 +20,17 @@
                 <div class="tab tab-nav-simple tab-nav-boxed form-tab">
                     <ul class="nav nav-tabs nav-fill align-items-center border-no justify-content-center mb-5" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active border-no lh-1 ls-normal">Login</a>
+                            <a class="nav-link border-no lh-1 ls-normal" asp-action="SignIn">Login</a>
                         </li>
                         <li class="delimiter">or</li>
                         <li class="nav-item">
-                            <a class="nav-link border-no lh-1 ls-normal" asp-action="Register">Register</a>
+                            <a class="nav-link active border-no lh-1 ls-normal" href="#register">Register</a>
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="signin">
+                        <div class="tab-pane active" id="register">
                             <form method="post">
+                                <div asp-validation-summary="All"></div>
                                 @if (!string.IsNullOrWhiteSpace(ViewBag.Message))
                                 {
                                     <div class="form-group mb-3">
@@ -39,25 +40,33 @@
                                     </div>
                                 }
                                 <div class="form-group mb-3">
-                                    <input  class="form-control" asp-for="UserName" placeholder="Username or Email Address *" >
+                                    <input class="form-control" asp-for="Name" placeholder="Name *">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input class="form-control" asp-for="SurName" placeholder="SurName *">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="email" class="form-control" asp-for="Email" placeholder="Email *">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" asp-for="Password" placeholder="Password *">
                                 </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="ConfirmPassword *">
+                                </div>
                                 <div class="form-footer">
                                     <div class="form-checkbox">
-                                        <input type="checkbox" class="custom-checkbox" id="signin-remember" name="signin-remember">
-                                        <label class="form-control-label" for="signin-remember">
-                                            Remember
-                                            me
+                                        <input type="checkbox" class="custom-checkbox" id="register-agree" name="register-agree" required="">
+                                        <label class="form-control-label" for="register-agree">
+                                            I agree to the
+                                            privacy policy
                                         </label>
                                     </div>
-                                    <a href="#" class="lost-link">Lost your password?</a>
                                 </div>
-                                <button class="btn btn-dark btn-block btn-rounded" type="submit">Login</button>
+                                <button class="btn btn-dark btn-block btn-rounded" type="submit">Register</button>
                             </form>
                             <div class="form-choice text-center">
-                                <label class="ls-m">or Login With</label>
+                                <label class="ls-m">or Register With</label>
                                 <div class="social-links">
                                     <a href="#" class="social-link social-google fab fa-google border-no"></a>
                                     <a href="#" class="social-link social-facebook fab fa-facebook-f border-no"></a>

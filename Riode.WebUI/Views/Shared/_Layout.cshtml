@@ -79,11 +79,11 @@
                         <span class="divider"></span>
                         <a href="contact-us.html" class="contact d-lg-show"><i class="d-icon-map"></i>Contact</a>
                         <a href="#" class="help d-lg-show"><i class="d-icon-info"></i> Need Help</a>
-                        <a class="login-link" href="~/UI/ajax/login.html" data-toggle="login-modal">
+                        <a class="login-link" asp-controller="Account" asp-action="SignIn" data-toggle="login-modal">
                             <i class="d-icon-user"></i>Sign in
                         </a>
                         <span class="delimiter">/</span>
-                        <a class="register-link ml-0" href="~/UI/ajax/login.html" data-toggle="login-modal">Register</a>
+                        <a class="register-link ml-0" asp-controller="Account" asp-action="Register" data-toggle="login-modal">Register</a>
                         <!-- End of Login -->
                     </div>
                 </div>

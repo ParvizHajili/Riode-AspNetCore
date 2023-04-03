@@ -103,6 +103,16 @@ app.UseEndpoints(endpoints =>
          });
 
      endpoints.MapControllerRoute(
+        name: "default-register",
+        pattern: "register.html",
+        defaults: new
+        {
+            area = "",
+            controller = "account",
+            action = "register"
+        });
+
+     endpoints.MapControllerRoute(
         name: "default-accessdenied",
         pattern: "accessdenied.html",
         defaults: new

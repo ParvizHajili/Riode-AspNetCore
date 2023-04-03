@@ -27,37 +27,81 @@ namespace Riode.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> SignIn(LoginFormModel model)
         {
-            RiodeUser foundedUser = null;
-
-            if (model.UserName.IsEmail())
+            if (ModelState.IsValid)
             {
-                foundedUser = await _userManager.FindByEmailAsync(model.UserName);
-            }
-            else
-            {
-                foundedUser = await _userManager.FindByNameAsync(model.UserName);
-            }
+                RiodeUser foundedUser = null;
 
-            if (foundedUser == null)
-            {
-                ViewBag.Message = "İstifadəçi adı və ya şifrə yanlışdır.";
-                goto end;
-            }
+                if (model.UserName.IsEmail())
+                {
+                    foundedUser = await _userManager.FindByEmailAsync(model.UserName);
+                }
+                else
+                {
+                    foundedUser = await _userManager.FindByNameAsync(model.UserName);
+                }
 
-            var result = await _signInManager.PasswordSignInAsync(foundedUser, model.Password, true, true);
-            if (!result.Succeeded)
-            {
-                ViewBag.Message = "İstifadəçi adı və ya şifrə yanlışdır.";
-                goto end;
-            }
+                if (foundedUser == null)
+                {
+                    ViewBag.Message = "İstifadəçi adı və ya şifrə yanlışdır.";
+                    goto end;
+                }
 
-            var callBackUrl = Request.Query["ReturnUrl"];
-            if (!string.IsNullOrWhiteSpace(callBackUrl))
-                return Redirect(callBackUrl);
-            else
+                var result = await _signInManager.PasswordSignInAsync(foundedUser, model.Password, true, true);
+                if (!result.Succeeded)
+                {
+                    ViewBag.Message = "İstifadəçi adı və ya şifrə yanlışdır.";
+                    goto end;
+                }
+
+                var callBackUrl = Request.Query["ReturnUrl"];
+                if (!string.IsNullOrWhiteSpace(callBackUrl))
+                {
+                    return Redirect(callBackUrl);
+                }
+
                 return RedirectToAction("Shop", "Index");
+            }
 
             end:
+            return View(model);
+        }
+
+
+        [AllowAnonymous]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterFormModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new RiodeUser();
+
+                user.Name = model.Name;
+                user.SurName = model.SurName;
+                user.UserName = model.Email;
+                user.Email = model.Email;
+                user.EmailConfirmed = true;
+
+                var result =await _userManager.CreateAsync(user,model.Password);
+                if (result.Succeeded)
+                {
+                    //confrim link
+                    ViewBag.Message = "Qeydiyyat Tamamlandı";
+
+                    return RedirectToAction(nameof(SignIn));
+                }
+
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.Code, item.Description);
+                }
+            }
+
             return View(model);
         }
 
