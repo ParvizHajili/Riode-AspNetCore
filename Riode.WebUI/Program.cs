@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.CodeAnalysis.FlowAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Riode.WebUI.Models.DataContexts;
+using Riode.WebUI.Models.Membership;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +14,34 @@ builder.Services.AddRouting(cfg => cfg.LowercaseUrls = true);
 builder.Services.AddDbContext<RiodeDbContext>(cfg =>
 {
     cfg.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"));
+})
+ .AddIdentity<RiodeUser, RiodeRole>()
+ .AddEntityFrameworkStores<RiodeDbContext>();
+
+builder.Services.Configure<IdentityOptions>(cfg =>
+{
+    cfg.Password.RequireDigit = false;
+    cfg.Password.RequireUppercase = false;
+    cfg.Password.RequireLowercase = false;
+    cfg.Password.RequireNonAlphanumeric = false;
+    //cfg.Password.RequiredUniqueChars = 1;
+    cfg.Password.RequiredLength = 3;
+
+    cfg.User.RequireUniqueEmail = true;
+    //cfg.User.AllowedUserNameCharacters = "abcde...";
+
+    cfg.Lockout.MaxFailedAccessAttempts = 3;
+    cfg.Lockout.DefaultLockoutTimeSpan = new TimeSpan(0, 3, 0);
 });
 
+builder.Services.ConfigureApplicationCookie(cfg =>
+{
+    cfg.LoginPath = "/signin.html";
+    cfg.AccessDeniedPath = "/accessdenied.html";
+
+    cfg.ExpireTimeSpan = new TimeSpan(0, 5, 0);
+    cfg.Cookie.Name = "riode";
+});
 
 var app = builder.Build();
 
@@ -46,6 +75,26 @@ app.UseEndpoints(endpoints =>
      endpoints.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
+
+     endpoints.MapControllerRoute(
+         name: "default-signin",
+         pattern: "signin.html",
+         defaults: new
+         {
+             area = "",
+             controller = "account",
+             action = "signin"
+         });
+
+     endpoints.MapControllerRoute(
+        name: "default-accessdenied",
+        pattern: "accessdenied.html",
+        defaults: new
+        {
+            area = "",
+            controller = "account",
+            action = "accessdenied"
+        });
 
      endpoints.MapControllerRoute(
     name: "default",

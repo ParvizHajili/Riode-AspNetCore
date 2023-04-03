@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Riode.WebUI.Models.Entities;
+using Riode.WebUI.Models.Membership;
 
 namespace Riode.WebUI.Models.DataContexts
 {
-    public class RiodeDbContext : DbContext
+    public class RiodeDbContext : IdentityDbContext<RiodeUser, RiodeRole, int, RiodeUserClaim, RiodeUserRole, RiodeUserLogin, RiodeRoleClaim, RiodeUserToken>
     {
         public RiodeDbContext(DbContextOptions options) : base(options)
         {
