@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.CodeAnalysis.FlowAnalysis;
 using Microsoft.EntityFrameworkCore;
+using Riode.WebUI.AppCode.Providers;
 using Riode.WebUI.Models.DataContexts;
 using Riode.WebUI.Models.Membership;
 
@@ -58,6 +60,8 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddScoped<UserManager<RiodeUser>>();
 builder.Services.AddScoped<SignInManager<RiodeUser>>();
+
+builder.Services.AddScoped<IClaimsTransformation, AppClaimProvider>();
 
 var app = builder.Build();
 
