@@ -19,6 +19,7 @@ namespace Riode.WebUI.Controllers
             _configuration = configuration;
         }
 
+        [Route("/signin.html")]
         [AllowAnonymous]
         public IActionResult SignIn()
         {
@@ -26,6 +27,7 @@ namespace Riode.WebUI.Controllers
         }
 
         [AllowAnonymous]
+        [Route("/signin.html")]
         [HttpPost]
         public async Task<IActionResult> SignIn(LoginFormModel model)
         {
@@ -69,6 +71,7 @@ namespace Riode.WebUI.Controllers
         }
 
 
+        [Route("/register.html")]
         [AllowAnonymous]
         public IActionResult Register()
         {
@@ -76,6 +79,7 @@ namespace Riode.WebUI.Controllers
         }
 
         [AllowAnonymous]
+        [Route("/register.html")]
         [HttpPost]
         public async Task<IActionResult> Register(RegisterFormModel model)
         {
@@ -127,10 +131,18 @@ namespace Riode.WebUI.Controllers
             return View(model);
         }
 
-
+        [Route("/profile.html")]
         public IActionResult Profile()
         {
             return View();
+        }
+
+        [Route("/logout.html")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+
+            return RedirectToAction(nameof(SignIn));
         }
 
         public IActionResult WishList()

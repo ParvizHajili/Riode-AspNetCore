@@ -97,25 +97,16 @@ app.UseEndpoints(endpoints =>
     name: "areas",
     pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
 
-     endpoints.MapControllerRoute(
-         name: "default-signin",
-         pattern: "signin.html",
-         defaults: new
-         {
-             area = "",
-             controller = "account",
-             action = "signin"
-         });
 
-     endpoints.MapControllerRoute(
-        name: "default-register",
-        pattern: "register.html",
-        defaults: new
-        {
-            area = "",
-            controller = "account",
-            action = "register"
-        });
+     //endpoints.MapControllerRoute(
+     //   name: "default-register-confirm",
+     //   pattern: "registration-confirm.html",
+     //   defaults: new
+     //   {
+     //       area = "",
+     //       controller = "account",
+     //       action = "RegisterConfirm"
+     //   });
 
      endpoints.MapControllerRoute(
         name: "default-accessdenied",
