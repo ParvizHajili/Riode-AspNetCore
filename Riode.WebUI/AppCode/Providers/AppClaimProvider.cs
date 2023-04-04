@@ -24,6 +24,25 @@ namespace Riode.WebUI.AppCode.Providers
                     currentIdentity.AddClaim(new Claim("name", user.Name));
                     currentIdentity.AddClaim(new Claim("surname", user.SurName));
                 }
+
+                #region Reload Roles
+                var role = currentIdentity.Claims.FirstOrDefault(c => c.Type.Equals(ClaimTypes.Role));
+                while (role != null)
+                {
+                    currentIdentity.RemoveClaim(role);
+                    role = currentIdentity.Claims.FirstOrDefault(c => c.Type.Equals(ClaimTypes.Role));
+                }
+
+                var currentRoles = (from ur in _context.UserRoles
+                                    join r in _context.Roles on ur.RoleId equals r.Id
+                                    where ur.UserId == userId
+                                    select r.Name).ToArray();
+
+                foreach (var item in currentRoles)
+                {
+                    currentIdentity.AddClaim(new Claim(ClaimTypes.Role, item));
+                }
+                #endregion
             }
             return principal;
         }
