@@ -11,10 +11,12 @@ namespace Riode.WebUI.Controllers
     {
         private readonly SignInManager<RiodeUser> _signInManager;
         private readonly UserManager<RiodeUser> _userManager;
-        public AccountController(SignInManager<RiodeUser> signInManager, UserManager<RiodeUser> userManager)
+        private readonly IConfiguration _configuration;
+        public AccountController(SignInManager<RiodeUser> signInManager, UserManager<RiodeUser> userManager, IConfiguration configuration)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _configuration = configuration;
         }
 
         [AllowAnonymous]
@@ -59,7 +61,7 @@ namespace Riode.WebUI.Controllers
                     return Redirect(callBackUrl);
                 }
 
-                return RedirectToAction("Shop", "Index");
+                return RedirectToAction("Index", "Shop");
             }
 
             end:
@@ -87,19 +89,39 @@ namespace Riode.WebUI.Controllers
                 user.Email = model.Email;
                 user.EmailConfirmed = true;
 
-                var result =await _userManager.CreateAsync(user,model.Password);
+                var result = await _userManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
-                    //confrim link
                     ViewBag.Message = "Qeydiyyat Tamamlandı";
-
-                    return RedirectToAction(nameof(SignIn));
                 }
+                #region EmailConfirm
+                //if (result.Succeeded)
+                //{
+                //    var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+                //    string path = $"{Request.Scheme}://{Request.Host}/registration-confirm.html?token={token}";
+                //    var emailResponse = _configuration.SendMail(user.Email, "Riode User Registration", $"Zəhmət olmasa <a href={path}>Link</a> vasitəsi ilə qeydiyyatı tamamlayın.");
+                //    if (emailResponse)
+                //    {
+                //        ViewBag.Message = "Qeydiyyat Tamamlandı";
+                //    }
+                //    else
+                //    {
+                //        ViewBag.Message = "Yanlisliq oldu yeniden cehd edin";
+                //    }
+
+                //    return RedirectToAction(nameof(SignIn));
+                //}
+                #endregion
+
 
                 foreach (var item in result.Errors)
                 {
                     ModelState.AddModelError(item.Code, item.Description);
                 }
+                return RedirectToAction(nameof(SignIn));
+
             }
 
             return View(model);

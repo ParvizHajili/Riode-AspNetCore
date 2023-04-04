@@ -25,7 +25,8 @@ builder.Services.AddDbContext<RiodeDbContext>(cfg =>
     cfg.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"));
 })
  .AddIdentity<RiodeUser, RiodeRole>()
- .AddEntityFrameworkStores<RiodeDbContext>();
+ .AddEntityFrameworkStores<RiodeDbContext>()
+ .AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(cfg =>
 {
