@@ -12,6 +12,46 @@ namespace Riode.WebUI.Models.DataContexts
 
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<RiodeUser>(e =>
+            {
+                e.ToTable("Users", "Membersip");
+            });
+
+            builder.Entity<RiodeRole>(e =>
+            {
+                e.ToTable("Roles", "Membersip");
+            });
+
+            builder.Entity<RiodeUserRole>(e =>
+            {
+                e.ToTable("UserRoles", "Membersip");
+            });
+
+            builder.Entity<RiodeUserClaim>(e =>
+            {
+                e.ToTable("UserClaims", "Membersip");
+            });
+
+            builder.Entity<RiodeRoleClaim>(e =>
+            {
+                e.ToTable("RoleClaim", "Membersip");
+            });
+
+            builder.Entity<RiodeUserLogin>(e =>
+            {
+                e.ToTable("UserLogins", "Membersip");
+            });
+
+            builder.Entity<RiodeUserToken>(e =>
+            {
+                e.ToTable("UserTokens", "Membersip");
+            });
+        }
+
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ProductColor> Colors { get; set; }
