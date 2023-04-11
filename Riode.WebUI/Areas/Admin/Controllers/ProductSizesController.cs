@@ -23,6 +23,7 @@ namespace Riode.WebUI.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductSizes
+        [Authorize(Policy = "admin.productsizes.index")]
         public async Task<IActionResult> Index()
         {
               return _context.Sizes != null ? 
@@ -30,6 +31,7 @@ namespace Riode.WebUI.Areas.Admin.Controllers
                           Problem("Entity set 'RiodeDbContext.Sizes'  is null.");
         }
 
+        [Authorize(Policy = "admin.productsizes.details")]
         // GET: Admin/ProductSizes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -48,6 +50,7 @@ namespace Riode.WebUI.Areas.Admin.Controllers
             return View(productSize);
         }
 
+        [Authorize(Policy = "admin.productsizes.create")]
         // GET: Admin/ProductSizes/Create
         public IActionResult Create()
         {
@@ -57,6 +60,7 @@ namespace Riode.WebUI.Areas.Admin.Controllers
         // POST: Admin/ProductSizes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "admin.productsizes.create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Abbr,Name,Description,Id,CreateByUserId,CreatedDate,DeletedByUserId,DeletedDate")] ProductSize productSize)
@@ -71,7 +75,7 @@ namespace Riode.WebUI.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductSizes/Edit/5
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Policy = "admin.productsizes.edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Sizes == null)
@@ -90,7 +94,7 @@ namespace Riode.WebUI.Areas.Admin.Controllers
         // POST: Admin/ProductSizes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Policy = "admin.productsizes.edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Abbr,Name,Description,Id,CreateByUserId,CreatedDate,DeletedByUserId,DeletedDate")] ProductSize productSize)
@@ -123,6 +127,7 @@ namespace Riode.WebUI.Areas.Admin.Controllers
             return View(productSize);
         }
 
+        [Authorize(Policy = "admin.productsizes.delete")]
         // GET: Admin/ProductSizes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -141,6 +146,7 @@ namespace Riode.WebUI.Areas.Admin.Controllers
             return View(productSize);
         }
 
+        [Authorize(Policy = "admin.productsizes.delete")]
         // POST: Admin/ProductSizes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

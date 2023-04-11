@@ -56,7 +56,40 @@ builder.Services.ConfigureApplicationCookie(cfg =>
 });
 
 builder.Services.AddAuthentication();
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(cfg =>
+{
+    cfg.AddPolicy("admin.productsizes.index", p =>
+    {
+        p.RequireAssertion(handler =>
+        {
+            return handler.User.HasClaim("admin.productsizes.index", "1");
+        });
+    });
+
+    cfg.AddPolicy("admin.productsizes.details", p =>
+    {
+        p.RequireAssertion(handler =>
+        {
+            return handler.User.HasClaim("admin.productsizes.details", "1");
+        });
+    });
+
+    cfg.AddPolicy("admin.productsizes.create", p =>
+    {
+        p.RequireAssertion(handler =>
+        {
+            return handler.User.HasClaim("admin.productsizes.create", "1");
+        });
+    });
+
+    cfg.AddPolicy("admin.productsizes.edit", p =>
+    {
+        p.RequireAssertion(handler =>
+        {
+            return handler.User.HasClaim("admin.productsizes.edit", "1");
+        });
+    });
+});
 
 builder.Services.AddScoped<UserManager<RiodeUser>>();
 builder.Services.AddScoped<SignInManager<RiodeUser>>();
