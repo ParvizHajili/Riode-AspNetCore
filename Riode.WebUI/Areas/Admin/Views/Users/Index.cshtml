@@ -1,20 +1,14 @@
-﻿@model IEnumerable<ProductSize>
-
+﻿@model IEnumerable<RiodeUser>
 @{
     ViewData["Title"] = "Index";
 }
 
-<!-- Page-header start -->
 <div class="page-header">
     <div class="row align-items-end">
         <div class="col-lg-8">
             <div class="page-header-title">
                 <div class="d-inline">
-                    <h4>Bootstrap Border Sizes</h4>
-                    <span>
-                        lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit
-                    </span>
+                    <h4>İstifadəçilər</h4>
                 </div>
             </div>
         </div>
@@ -25,7 +19,7 @@
                         <a href="../index.html"> <i class="feather icon-home"></i> </a>
                     </li>
                     <li class="breadcrumb-item" style="float: left;">
-                        <a href="#!">Ölçülər</a>
+                        <a href="#!">İstifadəçilər</a>
                     </li>
                     <li class="breadcrumb-item" style="float: left;">
                         <a href="#!">Border Table</a>
@@ -41,7 +35,7 @@
     <!-- Horizontal-border table start -->
     <div class="card">
         <div class="card-header">
-            <h5>Ölçülər</h5>
+            <h5>İstifadəçilər</h5>
             @*<span>
             Example of <code>horizontal</code> table borders. This is a
             default table border style attached to <code>.table</code> class.
@@ -57,19 +51,27 @@
                     <thead>
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.Abbr)
+                                Name
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Name)
+                                SurName
                             </th>
-
+                            <th>
+                                UserName
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                EmailConfirmed
+                            </th>
                             <th class="operate-cell">
-                                @if (User.HasAccess("admin.productsizes.create"))
+                                @*@if (User.HasAccess("admin.users.create"))
                                 {
                                     <a class="btn btn-success btn-outline-success" asp-action="Create">
                                         <i class="fas fa-plus"></i>
                                     </a>
-                                }
+                                }*@
                             </th>
                         </tr>
                     </thead>
@@ -78,26 +80,41 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Abbr)
+                                    @item.Name
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Name)
+                                    @item.SurName
                                 </td>
-
+                                <td>
+                                    @item.UserName
+                                </td>
+                                <td>
+                                    @item.Email
+                                </td>
+                                <td>
+                                    @if (item.EmailConfirmed)
+                                    {
+                                        <span class="badge badge-success">Confirmed</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-warning">Pending</span>
+                                    }
+                                </td>
                                 <td class="operate-cell">
-                                    @if (User.HasAccess("admin.productsizes.edit"))
+                                    @if (User.HasAccess("admin.users.edit"))
                                     {
                                         <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-outline-warning">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
                                     }
-                                    @if (User.HasAccess("admin.productsizes.details"))
+                                    @if (User.HasAccess("admin.users.details"))
                                     {
                                         <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-inverse btn-outline-inverse">
                                             <i class="fas fa-eye"></i>
                                         </a>
                                     }
-                                    @if (User.HasAccess("admin.productsizes.delete"))
+                                    @if (User.HasAccess("admin.users.delete"))
                                     {
                                         <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-dager btn-outline-danger">
                                             <i class="far fa-trash-alt"></i>

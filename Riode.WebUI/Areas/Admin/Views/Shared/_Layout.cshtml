@@ -412,6 +412,15 @@
                                         </li>
                                     </ul>
                                 </li>
+                                @if (User.HasAccess("admin.users.index"))
+                                {
+                                    <li>
+                                        <a asp-controller="Users" asp-action="Index">
+                                            <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                            <span class="pcoded-mtext">İstifadəçilər</span>
+                                        </a>
+                                    </li>
+                                }
                                 @if (User.HasAccess("admin.productsizes.index"))
                                 {
                                     <li>
@@ -1879,6 +1888,9 @@
     <!-- Custom js -->
     <script type="text/javascript" src="~/admin/files/assets/js/script.js"></script>
 
+
+    @RenderSection("addjs",required:false)
+    @RenderSection("addcss",required:false)
 </body>
 
 </html>
