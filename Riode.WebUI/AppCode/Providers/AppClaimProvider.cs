@@ -14,12 +14,12 @@ namespace Riode.WebUI.AppCode.Providers
         }
         public async Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
         {
-            if(principal.Identity.IsAuthenticated && principal.Identity is ClaimsIdentity currentIdentity)
+            if (principal.Identity.IsAuthenticated && principal.Identity is ClaimsIdentity currentIdentity)
             {
-                var userId = Convert.ToInt32(currentIdentity.Claims.FirstOrDefault(c=>c.Type.Equals(ClaimTypes.NameIdentifier))?.Value);
+                var userId = Convert.ToInt32(currentIdentity.Claims.FirstOrDefault(c => c.Type.Equals(ClaimTypes.NameIdentifier))?.Value);
 
                 var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
-                if(user != null)
+                if (user != null)
                 {
                     currentIdentity.AddClaim(new Claim("name", user.Name));
                     currentIdentity.AddClaim(new Claim("surname", user.SurName));
@@ -42,6 +42,31 @@ namespace Riode.WebUI.AppCode.Providers
                 {
                     currentIdentity.AddClaim(new Claim(ClaimTypes.Role, item));
                 }
+                #endregion
+
+                #region Reload Claims for current user
+                var currentClaims = currentIdentity.Claims.Where(c => Program.principals.Contains(c.Type))
+                    .ToArray();
+
+                foreach (var claim in currentClaims)
+                {
+                    currentIdentity.RemoveClaim(claim);
+                }
+
+                var currentPolicies = await (from uc in _context.UserClaims
+                                             where uc.UserId == userId && uc.ClaimValue == "1"
+                                             select uc.ClaimType)
+                 .Union(from rc in _context.RoleClaims
+                        join ur in _context.UserRoles on rc.RoleId equals ur.RoleId
+                        where ur.UserId == userId && rc.ClaimValue == "1"
+                        select rc.ClaimType).ToListAsync();
+
+                foreach (var policy in currentPolicies)
+                {
+                    currentIdentity.AddClaim(new Claim(policy, "1"));
+                }
+
+
                 #endregion
             }
             return principal;
