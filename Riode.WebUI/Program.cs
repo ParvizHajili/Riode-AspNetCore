@@ -12,7 +12,7 @@ using System.Reflection;
 internal class Program
 {
     public static string[] principals = null;
-    private static void Main(string[] args)
+    public static void Main(string[] args)
     {
         var types = typeof(Program).Assembly.GetTypes();
 
@@ -75,7 +75,7 @@ internal class Program
             cfg.LoginPath = "/signin.html";
             cfg.AccessDeniedPath = "/accessdenied.html";
 
-            cfg.ExpireTimeSpan = new TimeSpan(0, 5, 0);
+            cfg.ExpireTimeSpan = new TimeSpan(7, 20, 20, 20);
             cfg.Cookie.Name = "riode";
         });
 

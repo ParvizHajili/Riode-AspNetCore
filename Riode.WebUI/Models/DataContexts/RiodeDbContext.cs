@@ -5,7 +5,7 @@ using Riode.WebUI.Models.Membership;
 
 namespace Riode.WebUI.Models.DataContexts
 {
-    public class RiodeDbContext : IdentityDbContext<RiodeUser, RiodeRole, int, RiodeUserClaim, RiodeUserRole, RiodeUserLogin, RiodeRoleClaim, RiodeUserToken>
+    public class RiodeDbContext :IdentityDbContext<RiodeUser, RiodeRole, int, RiodeUserClaim, RiodeUserRole, RiodeUserLogin, RiodeRoleClaim, RiodeUserToken>
     {
         public RiodeDbContext(DbContextOptions options) : base(options)
         {

@@ -38,33 +38,33 @@
 
     <style>
         p.form-control,
-        p.textarea{
+        p.textarea {
             font-size: 16px;
             border-radius: 2px;
             border: 1px solid #ccc;
             margin-bottom: 0;
         }
 
-        p.textarea{
+        p.textarea {
             min-height: 150px;
         }
 
-        textarea.form-control{
+        textarea.form-control {
             min-height: 150px;
             resize: none;
         }
 
         th.operate-cell,
-        td.operate-cell{
+        td.operate-cell {
             max-width: 125px;
             max-width: 125px;
             text-align: right;
         }
 
-        th.operate-cell >a >i,
-        td.operate-cell > a > i {
-            margin: 0;
-        }
+            th.operate-cell > a > i,
+            td.operate-cell > a > i {
+                margin: 0;
+            }
     </style>
 </head>
 
@@ -412,12 +412,24 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a asp-controller="ProductSizes" asp-action="Index">
-                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
-                                        <span class="pcoded-mtext">Ölçülər</span>
-                                    </a>
-                                </li>
+                                @if (User.HasAccess("admin.productsizes.index"))
+                                {
+                                    <li>
+                                        <a asp-controller="ProductSizes" asp-action="Index">
+                                            <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                            <span class="pcoded-mtext">Ölçülər</span>
+                                        </a>
+                                    </li>
+                                }
+                                @if(User.HasAccess("admin.productcolors.index"))
+                                {
+                                    <li>
+                                        <a asp-controller="ProductColors" asp-action="Index">
+                                            <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                            <span class="pcoded-mtext">Rənglər</span>
+                                        </a>
+                                    </li>
+                                }
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
@@ -1782,7 +1794,7 @@
                             <!-- Main-body start -->
                             <div class="main-body">
                                 <div class="page-wrapper">
-                                   @RenderBody()
+                                    @RenderBody()
                                 </div>
                             </div>
                             <div id="styleSelector">

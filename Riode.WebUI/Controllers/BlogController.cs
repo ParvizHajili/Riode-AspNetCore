@@ -11,7 +11,7 @@ namespace Riode.WebUI.Controllers
             return View();
         }
 
-        [AllowAnonymous]
+        [Authorize(Policy = "blog.details")]
         public IActionResult Details()
         {
             return View();

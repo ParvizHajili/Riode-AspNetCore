@@ -64,9 +64,13 @@
                             </th>
 
                             <th class="operate-cell">
-                                <a class="btn btn-success btn-outline-success" asp-action="Create">
-                                    <i class="fas fa-plus"></i>
-                                </a>
+                                @*@if (User.HasClaim(c => c.Type.Equals("admin.productsizes.create") && c.Value.Equals("1")))*@
+                                @if (User.HasAccess("admin.productsizes.create"))
+                                {
+                                    <a class="btn btn-success btn-outline-success" asp-action="Create">
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                }
                             </th>
                         </tr>
                     </thead>
@@ -82,15 +86,24 @@
                                 </td>
 
                                 <td class="operate-cell">
-                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-outline-warning">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </a>
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-inverse btn-outline-inverse">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-dager btn-outline-danger">
-                                        <i class="far fa-trash-alt"></i>
-                                    </a>
+                                    @if (User.HasAccess("admin.productsizes.edit"))
+                                    {
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-outline-warning">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </a>
+                                    }
+                                    @if (User.HasAccess("admin.productsizes.details"))
+                                    {
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-inverse btn-outline-inverse">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    }
+                                    @if (User.HasAccess("admin.productsizes.delete"))
+                                    {
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-dager btn-outline-danger">
+                                            <i class="far fa-trash-alt"></i>
+                                        </a>
+                                    }
                                 </td>
                             </tr>
                         }
