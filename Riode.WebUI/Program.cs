@@ -88,7 +88,7 @@ internal class Program
                 {
                     p.RequireAssertion(handler =>
                     {
-                        return handler.User.HasClaim(policyName, "1");
+                        return handler.User.IsInRole("SuperAdmin") || handler.User.HasClaim(policyName, "1");
                     });
                 });
             }
