@@ -18,37 +18,37 @@ namespace Riode.WebUI.Models.DataContexts
 
             builder.Entity<RiodeUser>(e =>
             {
-                e.ToTable("Users", "Membersip");
+                e.ToTable("Users", "Membership");
             });
 
             builder.Entity<RiodeRole>(e =>
             {
-                e.ToTable("Roles", "Membersip");
+                e.ToTable("Roles", "Membership");
             });
 
             builder.Entity<RiodeUserRole>(e =>
             {
-                e.ToTable("UserRoles", "Membersip");
+                e.ToTable("UserRoles", "Membership");
             });
 
             builder.Entity<RiodeUserClaim>(e =>
             {
-                e.ToTable("UserClaims", "Membersip");
+                e.ToTable("UserClaims", "Membership");
             });
 
             builder.Entity<RiodeRoleClaim>(e =>
             {
-                e.ToTable("RoleClaim", "Membersip");
+                e.ToTable("RoleClaim", "Membership");
             });
 
             builder.Entity<RiodeUserLogin>(e =>
             {
-                e.ToTable("UserLogins", "Membersip");
+                e.ToTable("UserLogins", "Membership");
             });
 
             builder.Entity<RiodeUserToken>(e =>
             {
-                e.ToTable("UserTokens", "Membersip");
+                e.ToTable("UserTokens", "Membership");
             });
         }
 

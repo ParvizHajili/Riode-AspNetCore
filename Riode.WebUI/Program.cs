@@ -96,6 +96,7 @@ internal class Program
 
         builder.Services.AddScoped<UserManager<RiodeUser>>();
         builder.Services.AddScoped<SignInManager<RiodeUser>>();
+        builder.Services.AddScoped<RoleManager<RiodeRole>>();
 
         builder.Services.AddScoped<IClaimsTransformation, AppClaimProvider>();
 
@@ -110,6 +111,9 @@ internal class Program
         }
 
         app.UseHttpsRedirection();
+
+        app.SeedMembership();
+
         app.UseStaticFiles();
 
         app.UseRouting();
