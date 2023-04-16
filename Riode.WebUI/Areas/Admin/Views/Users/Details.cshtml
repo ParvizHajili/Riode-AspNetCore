@@ -107,7 +107,7 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th style="max-width:100px">
+                                                <th class="table-row-select">
 
                                                 </th>
                                                 <th>
@@ -119,12 +119,12 @@
                                             @foreach (Tuple<int, string, bool> item in ViewBag.Roles)
                                             {
                                                 <tr>
-                                                    <th>
+                                                    <td class="table-row-select">
                                                         <input type="checkbox" \
                                                         @(item.Item3 ? "checked" : "")
                                                                data-role-id="@item.Item1"
-                                                               data-role-name="@item.Item2">
-                                                    </th>
+                                                               data-user-id="@Model.Id">
+                                                    </td>
                                                     <th>
                                                         @item.Item2
                                                     </th>
@@ -137,7 +137,7 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th style="max-width:100px">
+                                                <th class="table-row-select">
 
                                                 </th>
                                                 <th>
@@ -149,11 +149,11 @@
                                             @foreach (Tuple<string, bool> item in ViewBag.Principals)
                                             {
                                                 <tr>
-                                                    <th>
+                                                    <td class="table-row-select">
                                                         <input type="checkbox" \
                                                         @(item.Item2 ? "checked" : "")
                                                                data-principal-name="@item.Item1">
-                                                    </th>
+                                                    </td>
                                                     <th>
                                                         @item.Item1
                                                     </th>
@@ -181,7 +181,42 @@
 
 @section addjs{
     <script src="~/lib/tab-control.js"></script>
+    <script src="~/lib/toastr/toastr.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('input[type="checkbox"][data-role-id]').change(function (e) {
+
+                let obj = $(e.currentTarget).data();
+                obj.selected = $(e.currentTarget).is(':checked')
+
+                $.ajax({
+                    url: '@Url.Action("SetRole")',
+                    type: 'POST',
+                    data: obj,
+                    contentType: 'application/x-www-form-urlencoded',
+                    dataType: 'json',
+                    success: function (response){
+                        if (response.error == false) {
+                            toastr.success(response.message, 'Uğurludur!')
+                            return;
+                        }
+                        console.log(response)
+                        toastr.error(response.message, 'Xəta!')
+
+                        $(e.currentTarget).prop('checked',!obj.selected)
+                    },
+                    error: function (response) {
+                        console.warn(response)
+                    }
+                })
+            });
+        })
+    </script>
+
 }
 @section addcss{
     <link href="~/lib/tab-control.css" rel="stylesheet" />
+    <link href="~/lib/toastr/toastr.css" rel=" stylesheet"/>
 }
