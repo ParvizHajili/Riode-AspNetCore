@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient.Server;
 using Microsoft.EntityFrameworkCore;
+using Riode.WebUI.AppCode.Extensions;
 using Riode.WebUI.Models.DataContexts;
 using Riode.WebUI.Models.Membership;
 using System.Data;
@@ -58,8 +60,27 @@ namespace Riode.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> SetRole(int userId, int roleId, bool selected)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == userId);
+
+            if (user == null)
+            {
+                return Json(new
+                {
+                    error = true,
+                    message = "Xətalı Sorğu"
+                });
+            }
+
+            if(userId == User.GetCurrentUserId())
+            {
+                return Json(new
+                {
+                    error = true,
+                    message = "İstifadəçi özünü səlahiyyətləndirə bilməz"
+                });
+            }
+
             var role = await _context.Roles.FirstOrDefaultAsync(x => x.Id == roleId);
-            if (user == null && role == null)
+            if (role == null)
             {
                 return Json(new
                 {
@@ -127,9 +148,27 @@ namespace Riode.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> SetPrincipal(int userId, string principalName, bool selected)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == userId);
-            var hasPrincipal = Program.principals.Contains(principalName);
 
-            if (user == null && !hasPrincipal)
+            if (user == null)
+            {
+                return Json(new
+                {
+                    error = true,
+                    message = "Xətalı Sorğu"
+                });
+            }
+
+            if (userId == User.GetCurrentUserId())
+            {
+                return Json(new
+                {
+                    error = true,
+                    message = "İstifadəçi özünü səlahiyyətləndirə bilməz."
+                });
+            }
+
+            var hasPrincipal = Program.principals.Contains(principalName);
+            if (!hasPrincipal)
             {
                 return Json(new
                 {
