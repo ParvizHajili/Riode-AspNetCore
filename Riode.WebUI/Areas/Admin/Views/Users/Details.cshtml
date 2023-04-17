@@ -152,6 +152,7 @@
                                                     <td class="table-row-select">
                                                         <input type="checkbox" \
                                                         @(item.Item2 ? "checked" : "")
+                                                               data-user-id="@Model.Id" ,
                                                                data-principal-name="@item.Item1">
                                                     </td>
                                                     <th>
@@ -197,7 +198,7 @@
                     data: obj,
                     contentType: 'application/x-www-form-urlencoded',
                     dataType: 'json',
-                    success: function (response){
+                    success: function (response) {
                         if (response.error == false) {
                             toastr.success(response.message, 'Uğurludur!')
                             return;
@@ -205,18 +206,45 @@
                         console.log(response)
                         toastr.error(response.message, 'Xəta!')
 
-                        $(e.currentTarget).prop('checked',!obj.selected)
+                        $(e.currentTarget).prop('checked', !obj.selected)
                     },
                     error: function (response) {
                         console.warn(response)
                     }
                 })
             });
+
+
+            $('input[type="checkbox"][data-principal-name]').change(function (e) {
+                let obj = $(e.currentTarget).data()
+                obj.selected = $(e.currentTarget).is(':checked')
+
+                $.ajax({
+                    url: '@Url.Action("SetPrincipal")',
+                    type: 'POST',
+                    data: obj,
+                    contentType: 'application/x-www-form-urlencoded',
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.error == false) {
+                            toastr.success(response.message, 'Uğurludur!')
+                            return;
+                        }
+                        console.log(response)
+                        toastr.error(response.message, 'Xəta!')
+
+                        $(e.currentTarget).prop('checked', !obj.selected)
+                    },
+                    error: function (response) {
+                        console.warn(response)
+                    }
+                })
+            })
         })
     </script>
 
 }
 @section addcss{
     <link href="~/lib/tab-control.css" rel="stylesheet" />
-    <link href="~/lib/toastr/toastr.css" rel=" stylesheet"/>
+    <link href="~/lib/toastr/toastr.css" rel=" stylesheet" />
 }

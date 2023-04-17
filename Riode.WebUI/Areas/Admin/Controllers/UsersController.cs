@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Riode.WebUI.Models.DataContexts;
 using Riode.WebUI.Models.Membership;
+using System.Data;
 
 namespace Riode.WebUI.Areas.Admin.Controllers
 {
@@ -118,8 +119,75 @@ namespace Riode.WebUI.Areas.Admin.Controllers
                 }
 
             }
+        }
 
-            return Json(null);
+        [HttpPost]
+        [Route("/user-set-principal")]
+        [Authorize("admin.users.setprincipal")]
+        public async Task<IActionResult> SetPrincipal(int userId, string principalName, bool selected)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            var hasPrincipal = Program.principals.Contains(principalName);
+
+            if (user == null && !hasPrincipal)
+            {
+                return Json(new
+                {
+                    error = true,
+                    message = "Xətalı Sorğu"
+                });
+            }
+
+            if (selected)
+            {
+                if (await _context.UserClaims.AnyAsync(x => x.UserId == userId && x.ClaimType.Equals(principalName) && x.ClaimValue.Equals("1")))
+                {
+                    return Json(new
+                    {
+                        error = true,
+                        message = $"'{user.Name} {user.SurName} ' adlı istifadəçi '{principalName}' adlı səlahiyyətə malikdir!"
+                    });
+                }
+                else
+                {
+                    _context.UserClaims.Add(new RiodeUserClaim
+                    {
+                        UserId = userId,
+                        ClaimType = principalName,
+                        ClaimValue = "1"
+                    });
+                    await _context.SaveChangesAsync();
+
+                    return Json(new
+                    {
+                        error = false,
+                        message = $"'{user.Name} {user.SurName} ' adlı istifadəçiyə '{principalName}' adlı səlahiyyət əlavə edildi!"
+                    });
+                }
+            }
+            else
+            {
+                var userClaim = await _context.UserClaims.FirstOrDefaultAsync(x => x.UserId == userId && x.ClaimType.Equals(principalName) && x.ClaimValue.Equals("1"));
+                if (userClaim == null)
+                {
+                    return Json(new
+                    {
+                        error = true,
+                        message = $"'{user.Name} {user.SurName} ' adlı istifadəçi '{principalName}' adlı səlahiyyətə malik deyil!"
+                    });
+                }
+                else
+                {
+                    _context.UserClaims.Remove(userClaim);
+                    await _context.SaveChangesAsync();
+
+                    return Json(new
+                    {
+                        error = false,
+                        message = $"'{user.Name} {user.SurName} ' adlı istifadəçidən '{principalName}' adlı səlahiyyət silindi!"
+                    });
+                }
+            }
         }
     }
 }
