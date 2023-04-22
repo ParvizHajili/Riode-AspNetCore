@@ -20,6 +20,7 @@
     <meta name="author" content="#">
     <!-- Favicon icon -->
     <link rel="icon" href="~/admin/files/assets/images/favicon.ico" type="image/x-icon">
+    
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <!-- Required Fremwork -->
@@ -35,6 +36,8 @@
     <link rel="stylesheet" type="text/css" href="~/admin/files/assets/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="~/admin/files/assets/scss/partials/menu/_pcmenu.html">
     <script src="https://kit.fontawesome.com/1154e1d6ee.js" crossorigin="anonymous"></script>
+    <!-- Toastr-->
+    <link href="~/lib/toastr/toastr.min.css" rel="stylesheet" />
 
     <style>
         p.form-control,
@@ -1893,9 +1896,38 @@
     <script src="~/admin/files/assets/js/pcoded.min.js"></script>
     <script src="~/admin/files/assets/js/vartical-layout.min.js"></script>
     <script src="~/admin/files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script src="~/lib/toastr/toastr.min.js"></script>
     <!-- Custom js -->
     <script type="text/javascript" src="~/admin/files/assets/js/script.js"></script>
 
+
+   <script>
+        $.ajaxSetup({
+        statusCode:{
+            200:function(response){
+                 if (response.error == false && response.message.lengt >0 ) {
+                            toastr.success(response.message, 'Uğurludur!')
+                        }
+            },
+            400:function(response){
+               toastr.warning('Xətalı Sorğu!', 'Diqqət!')
+            },
+            401:function(response){
+                toastr.warning('Əvvəlcə Sistemə Daxil Olmalısınız!', 'Diqqət!')
+            },
+            403:function(response){
+                toastr.warning('Bu Əməliyyat üçün səlahoyyətiniz yoxdur!', 'Diqqət!')
+            },
+            404:function(response){
+                toastr.warning('Məlumat Tapılmadı!', 'Diqqət!')
+            },
+            500:function(response){
+               toastr.error('Server Xətası!', 'Xəta!')
+            },
+        }
+    })
+   </script>
 
     @RenderSection("addjs",required:false)
     @RenderSection("addcss",required:false)

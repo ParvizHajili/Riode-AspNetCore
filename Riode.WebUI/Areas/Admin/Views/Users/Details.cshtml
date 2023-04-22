@@ -182,7 +182,6 @@
 
 @section addjs{
     <script src="~/lib/tab-control.js"></script>
-    <script src="~/lib/toastr/toastr.min.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -226,17 +225,12 @@
                     contentType: 'application/x-www-form-urlencoded',
                     dataType: 'json',
                     success: function (response) {
-                        if (response.error == false) {
-                            toastr.success(response.message, 'Uğurludur!')
-                            return;
-                        }
-                        console.log(response)
-                        toastr.error(response.message, 'Xəta!')
+                       if(respons.error == true){
+                            console.log(response)
+                            toastr.error(response.message, 'Xəta!')
 
-                        $(e.currentTarget).prop('checked', !obj.selected)
-                    },
-                    error: function (response) {
-                        console.warn(response)
+                            $(e.currentTarget).prop('checked', !obj.selected)
+                       }                       
                     }
                 })
             })
@@ -246,5 +240,4 @@
 }
 @section addcss{
     <link href="~/lib/tab-control.css" rel="stylesheet" />
-    <link href="~/lib/toastr/toastr.css" rel=" stylesheet" />
 }
