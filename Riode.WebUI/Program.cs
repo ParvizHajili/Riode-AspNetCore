@@ -8,6 +8,7 @@ using Riode.WebUI.AppCode.Providers;
 using Riode.WebUI.Models.DataContexts;
 using Riode.WebUI.Models.Membership;
 using System.Reflection;
+using Newtonsoft.Json;
 
 internal class Program
 {
@@ -42,7 +43,7 @@ internal class Program
                         .Build();
 
             cfg.Filters.Add(new AuthorizeFilter(policy));
-        });
+        }).AddNewtonsoftJson(cfg => cfg.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
         builder.Services.AddRouting(cfg => cfg.LowercaseUrls = true);
 

@@ -792,15 +792,20 @@
 
                 console.log(filterObj);
 
-                const filterObjJson = JSON.stringify(filterObj);
+                //const filterObjJson = JSON.stringify(filterObj);
 
-                console.log(filterObjJson);
+                //console.log(filterObjJson);
 
                 $.ajax({
                     url: '@Url.Action("Filter","Shop")',
                     type: 'POST',
-                    data: filterObjJson,
-                    contentType: 'application/json',
+
+                    data: filterObj,
+                    contentType: 'application/x-www-form-urlencoded',
+
+                    //data: filterObjJson,
+                    //contentType: 'application/json',
+
                     dataType: 'json',
                     beforeSend: function () {
                         console.log('sorguadan evvel');

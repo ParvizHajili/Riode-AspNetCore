@@ -49,21 +49,46 @@ namespace Riode.WebUI.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult Filter([FromBody]ShopFilterFormModel formModel)
+        public IActionResult Filter(ShopFilterFormModel model)
         {
-            return Json(new {
+            var query = _context.Products
+                .Include(x => x.Images.Where(x => x.IsMain == true))
+                .Include(x => x.Brand)
+                .Include(x => x.ProductSizeColorCollection)
+                .Where(x => x.DeletedByUserId == null)
+                .AsQueryable();
+
+            if (model?.Brands?.Count() > 0)
+            {
+                query = query.Where(p => model.Brands.Contains(p.BrandId));
+            }
+            
+            if (model?.Sizes?.Count() > 0)
+            {
+                query = query
+                    .Where(p => p.ProductSizeColorCollection.Any(x => model.Sizes.Contains(x.SizeId)));
+            }
+
+            if (model?.Colors?.Count() > 0)
+            {
+                query = query
+                    .Where(p => p.ProductSizeColorCollection.Any(x => model.Colors.Contains(x.ColorId)));
+            }
+
+            return Json(new
+            {
                 error = false,
-                data = formModel
+                data = query.ToList()
             });
         }
 
         [AllowAnonymous]
         public IActionResult Details(int id)
         {
-           
+
 
             var product = _context.Products
-                .Include(x=>x.Brand)
+                .Include(x => x.Brand)
                 .Include(x => x.Images)
                 .FirstOrDefault(x => x.Id == id && x.DeletedByUserId == null);
             if (product == null)
