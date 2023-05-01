@@ -766,7 +766,7 @@
             })
 
 
-            $('ul.filter-items li').click(function (e){
+            $('ul.filter-items li').click(function (e) {
                 setFilter()
             })
         });
@@ -811,7 +811,64 @@
                         console.log('sorguadan evvel');
                     },
                     success: function (response) {
-                        console.log(response);
+                        if (response.error == false) {
+                            $('#productContainer').html('');
+
+                            $.each(response.data, function (index, item) {
+                                const el = $(`<div class="product">
+                                                            <figure class="product-media">
+                                                                <a href="/shop/details/${item.Id}">
+                                                                    <img src="/UI/images/product/${item.images[0].imageName}" alt="product" width="280" height="315">
+                                                                </a>
+                                                                <div class="product-label-group">
+                                                                    <label class="product-label label-new">new</label>
+                                                                    <label class="product-label label-sale">12% OFF</label>
+                                                                </div>
+                                                                <div class="product-action">
+                                                                    <a href="#" class="btn-cart" title="Add to cart">
+                                                                        <i class="d-icon-bag"></i>
+                                                                        <label>Add to cart</label>
+                                                                    </a>
+                                                                    <a href="#" class="btn-wishlist" title="Add to wishlist">
+                                                                        <i class="d-icon-heart"></i>
+                                                                    </a>
+                                                                    <a class="btn-quickview" title="Quick View" href="/shop/details/1">
+                                                                        <i class="d-icon-search"></i>
+                                                                        <label>Quick View</label>
+                                                                    </a>
+                                                                </div>
+                                                            </figure>
+                                                            <div class="product-details">
+                                                                <div class="product-cat">
+                                                                    <a href="shop-grid-3col.html">Bags &amp; Backpacks</a>
+                                                                </div>
+                                                                <h3 class="product-name">
+                                                                    <a href="/shop/details/1">${item.name}</a>
+                                                                </h3>
+                                                                <div class="product-price">
+                                                                    <ins class="new-price">$53.99</ins>
+                                                                    <del class="old-price">$67.99</del>
+                                                                </div>
+                                                                <div class="ratings-container">
+                                                                    <div class="ratings-full">
+                                                                        <span class="ratings" style="width:60%"></span>
+                                                                        <span class="tooltiptext tooltip-top"></span>
+                                                                    </div>
+                                                                    <a class="rating-reviews" href="/shop/details/1">( 16 reviews )</a>
+                                                                </div>
+                                                                <p class="product-short-desc">
+                                                                ${item.shortDescription}
+                                                                </p>
+                                                            </div>
+                                                        </div>`);
+
+                                $('#productContainer').append(el)
+                            })
+                            const e = $('[href="#product-list"].active');
+
+                            if(el != undefined)
+                                $(el)[0].click('')
+                        }
                     },
                     error: function (response) {
                         console.log(response);
@@ -824,55 +881,55 @@
         }
 
 
-        //function setFilter() {
+                        //function setFilter() {
 
-        //    if($.setFilterProcessId != undefined){
-        //        clearTimeout($.setFilterProcessId);
-        //    }
+                        //    if($.setFilterProcessId != undefined){
+                        //        clearTimeout($.setFilterProcessId);
+                        //    }
 
-        //    $.setFilterProcessId = setTimeout(function () {
+                        //    $.setFilterProcessId = setTimeout(function () {
 
-        //        const filterObj = {}
+                        //        const filterObj = {}
 
-        //        $('ul[data-entity-name]').each(function (index, item) {
-        //            const entityPropertyName = $(item).data('entity-name')
+                        //        $('ul[data-entity-name]').each(function (index, item) {
+                        //            const entityPropertyName = $(item).data('entity-name')
 
-        //            filterObj[entityPropertyName] = []
+                        //            filterObj[entityPropertyName] = []
 
-        //            $(item).find('li.active').each(function (indexLi, itemLi) {
+                        //            $(item).find('li.active').each(function (indexLi, itemLi) {
 
-        //                filterObj[entityPropertyName].push($(itemLi).data('entity-id'))
-        //            });
-        //        });
-        //        console.log(filterObj)
+                        //                filterObj[entityPropertyName].push($(itemLi).data('entity-id'))
+                        //            });
+                        //        });
+                        //        console.log(filterObj)
 
-        //        const filterObjJson = JSON.stringify(filterObj)
+                        //        const filterObjJson = JSON.stringify(filterObj)
 
-        //        console.log(filterObjJson)
+                        //        console.log(filterObjJson)
 
-        //        $.ajax({
-        //            url: '@Url.Action("Filter","Shop")',
-        //            type: 'POST',
+                        //        $.ajax({
+                        //            url: '@Url.Action("Filter","Shop")',
+                        //            type: 'POST',
 
-        //            data: filterObjJson,
-        //            contentType: 'application/json',
+                        //            data: filterObjJson,
+                        //            contentType: 'application/json',
 
-        //            dataType: 'application/json',
-        //            beforeSend: function(){
-        //                console.log('sorguadan evvel')
-        //            },
-        //            success: function(response){
-        //                console.log(response)
-        //            },
-        //            error: function(response){
-        //                console.log(response)
-        //            }
-        //        })
-        //            .always(function(){
-        //                console.log('sorguadan sonra')
-        //            })
-        //    },2000)
-        //}
+                        //            dataType: 'application/json',
+                        //            beforeSend: function(){
+                        //                console.log('sorguadan evvel')
+                        //            },
+                        //            success: function(response){
+                        //                console.log(response)
+                        //            },
+                        //            error: function(response){
+                        //                console.log(response)
+                        //            }
+                        //        })
+                        //            .always(function(){
+                        //                console.log('sorguadan sonra')
+                        //            })
+                        //    },2000)
+                        //}
     </script>
 }
 
